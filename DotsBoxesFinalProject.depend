@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1640262383 source:d:\college\dotsboxesfinalproject\main.c
+	<stdio.h>
+	<stdlib.h>
+	"grid.h"
+
+1640204316 d:\college\dotsboxesfinalproject\grid.h
+
