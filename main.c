@@ -11,13 +11,16 @@
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
 
+
+
 void print(int size1,int arr1[][size1]){
+    printf("\n\t\t\t\t\t\t   ");
     for(int j=1 ;j<size1 ;j++){
         printf(" %d",arr1[0][j]);
     }
     printf("\n");
     for(int i=1 ; i<size1 ; i++){
-        printf("%d",i);
+        printf("\t\t\t\t\t\t   %d",i);
         for(int j=1; j<size1 ;j++){
             if( arr1[i][j]==254){
                printf( ANSI_COLOR_WHITE   "%c " ANSI_COLOR_RESET ,arr1[i][j] );
@@ -69,9 +72,9 @@ void GamePlay(int v,int size1, int arr1[][size1],int moves,int score1,int score2
         printf(ANSI_COLOR_GREEN"\n\t\t\t\t\t\t Total Number of Moves: %d\n"ANSI_COLOR_RESET,moves);
         printf(ANSI_COLOR_BLUE"\n \t\t\tCurrent Score Player one : %d "ANSI_COLOR_RESET,score1);
         printf(ANSI_COLOR_RED" \t\t\tCurrent Score Player Two : %d\n\n"ANSI_COLOR_RESET,score2);
-        printf(ANSI_COLOR_WHITE"Enter row : "ANSI_COLOR_RESET);
+        printf(ANSI_COLOR_MAGENTA"Enter row : "ANSI_COLOR_RESET);
         scanf("%d",&y);
-        printf(ANSI_COLOR_WHITE"Enter column : "ANSI_COLOR_RESET);
+        printf(ANSI_COLOR_MAGENTA"Enter column : "ANSI_COLOR_RESET);
         scanf("%d",&z);
         if(y==z || (y%2==0)&&(z%2==0)|| (y%2==1)&&(z%2==1)||y==0||z==0 || arr1[y][z]!=' '){
                 system("cls");
@@ -96,6 +99,7 @@ void GamePlay(int v,int size1, int arr1[][size1],int moves,int score1,int score2
 
 int main()
 {
+    system(" ");
     int x;
     int v ;    // represent which player is playing
     printf("Enter N The size1 of The Grid which is nxn: ");
