@@ -11,8 +11,6 @@
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
 
-
-
 void print(int size1,int arr1[][size1]){
     printf("\n\t\t\t\t\t\t   ");
     for(int j=1 ;j<size1 ;j++){
@@ -102,6 +100,13 @@ int main()
     system(" ");
     int x;
     int v ;    // represent which player is playing
+    int playerNumber ;
+    printf("For 1 player mode enter (1)\nFor 2 player mode enter (2)\n");
+    scanf("%d" , &playerNumber);
+    while(playerNumber != 1 && playerNumber != 2){
+        printf("Enter 1 or 2 please : ");
+        scanf("%d" , &playerNumber);
+    }
     printf("Enter N The size1 of The Grid which is nxn: ");
     scanf("%d",&x);
     int size1= x*2+2 ;
