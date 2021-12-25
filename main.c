@@ -31,7 +31,6 @@ void print(int size1,int arr1[][size1]){
                 } else {
                     printf(ANSI_COLOR_BLUE "%c "ANSI_COLOR_RESET ,arr1[i][j]);
                 }
-
             }
         }
         printf("\n");
@@ -70,7 +69,6 @@ void GamePlay(int v,int size1, int arr1[][size1],int moves,int score1,int score2
         printf(ANSI_COLOR_GREEN"\n\t\t\t\t\t\t Total Number of Moves: %d\n"ANSI_COLOR_RESET,moves);
         printf(ANSI_COLOR_BLUE"\n \t\t\tCurrent Score Player one : %d "ANSI_COLOR_RESET,score1);
         printf(ANSI_COLOR_RED" \t\t\tCurrent Score Player Two : %d\n\n"ANSI_COLOR_RESET,score2);
-
         printf(ANSI_COLOR_WHITE"Enter row : "ANSI_COLOR_RESET);
         scanf("%d",&y);
         printf(ANSI_COLOR_WHITE"Enter column : "ANSI_COLOR_RESET);
@@ -81,19 +79,20 @@ void GamePlay(int v,int size1, int arr1[][size1],int moves,int score1,int score2
                 goto there3;
         }else{
             if(v==1){
-                if(z%2==0){  // for horizontal move
-                    arr1[y][z]=196 ;
+                if(z%2==0){
+                    arr1[y][z]=196 ;    // for horizontal move
                 }else{
-                    arr1[y][z]=179; // for vertical move
+                    arr1[y][z]=179;    // for vertical move
                 }
             }else{
-                if(z%2==0){  // for horizontal move
-                    arr1[y][z]=205 ;
+                if(z%2==0){
+                    arr1[y][z]=205 ;    // for horizontal move
                 }else{
-                    arr1[y][z]=186; // for vertical move
+                    arr1[y][z]=186;    // for vertical move
                 }
             }
-}}
+        }
+}
 
 int main()
 {
@@ -112,36 +111,13 @@ int main()
     while(moves<totalmoves){
         v=1 ;
         GamePlay(v,size1,arr1,moves,score1,score2);
-        //int y,z;
-        /*there3 :
-        print(size1,arr1);
-        printf(ANSI_COLOR_BLUE "\n\n\n\n\t\t\tPlayer One"ANSI_COLOR_RESET);
-        printf("\n\t\t\tTotal Number of Moves: %d\n \t\t\tCurrent Score Player one : %d\n \t\t\tCurrent Score Player two : %d\n",moves,score1,score2);
-        printf("Enter row : ");
-        scanf("%d",&y);
-        printf("Enter column : ");
-        scanf("%d",&z);
-        if(y==z || (y%2==0)&&(z%2==0)|| (y%2==1)&&(z%2==1)||y==0||z==0 || arr1[y][z]!=' '){
-                system("cls");
-                printf("Invalid Move Please Try Again\n\n");
-                goto there3;
-        }else{
-            if(z%2==0){  // for horizontal move
-                arr1[y][z]=196 ;
-            }else{
-                arr1[y][z]=179; // for vertical move
-            }
-
-            //system("cls");
-            //moves++;if(moves>totalmoves){break ;}
-        }*/
-            system("cls");
-            moves++;if(moves>totalmoves){break ;}
-
+        system("cls");
+        moves++;
+        if(moves>totalmoves){break ;}
         int tempScore1 = Scorefun(v,size1,arr1);
         score1 += tempScore1 ;
         if(tempScore1){
-          goto there;
+            goto there;
         }
         // Player Two
 
@@ -149,45 +125,19 @@ int main()
         v=2 ;
         if(moves<totalmoves){
         GamePlay(v,size1,arr1,moves,score1,score2);
-        //int flag2 = 0;
-        //int y,z ;
         there4:
-        /*print(size1,arr1);
-        printf(ANSI_COLOR_RED"\n\n\n\n\t\t\tPlayer Two"ANSI_COLOR_RESET);
-        printf("\n\t\t\tTotal Number of Moves: %d\n \t\t\tCurrent Score Player one : %d\n \t\t\tCurrent Score Player two : %d\n",moves,score1,score2);
-        printf("Enter row : ");
-        scanf("%d",&y);
-        printf("Enter column : ");
-        scanf("%d",&z);
-        if(y==z || (y%2==0)&&(z%2==0)|| (y%2==1)&&(z%2==1)||y==0||z==0 || arr1[y][z]!=' '){
-                system("cls");
-                printf("Invalid Move Please Try Again\n\n");
-                goto there4 ;
-
-        }else{
-            printf(ANSI_COLOR_RED"\n\n\n\n\t\t\tPlayer Two"ANSI_COLOR_RESET);
-            if(z%2==0){  // for horizontal move
-                arr1[y][z]=205 ;
-            }else{
-                arr1[y][z]=186; // for vertical move
-            }
-            system("cls");
-            moves++;
-        }*/
-            system("cls");
-            moves++;
+        system("cls");
+        moves++;
         int tempScore2 = Scorefun(v,size1, arr1);
         score2 += tempScore2 ;
         if(tempScore2){
              goto there2 ;
         }
-
-        }else {break ; }
-
+        }else{
+            break ;}
 
     }
     print(size1,arr1);printf("  Player ONE Score : %d \t\t\t Player TWO Score : %d\n",score1,score2) ;
-
 
     return 0;
 }
