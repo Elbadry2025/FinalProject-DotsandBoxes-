@@ -133,13 +133,14 @@ int main()
     int x;
     int v ;    // represent which player is playing
     int playerNumber ;
-    printf("For 1 player mode enter (1)\nFor 2 player mode enter (2)\n");
+    printf(ANSI_COLOR_YELLOW "For 1 player mode enter (1)\n\nFor 2 player mode enter (2)\n"ANSI_COLOR_RESET );
     scanf("%d" , &playerNumber);
+    system("cls");
     while(playerNumber != 1 && playerNumber != 2){
         printf("Enter 1 or 2 please : ");
         scanf("%d" , &playerNumber);
     }
-    printf("Enter N The size1 of The Grid which is nxn: ");
+    printf(ANSI_COLOR_YELLOW"Enter (N) The size of The Grid which is NxN boxes : "ANSI_COLOR_RESET);
     scanf("%d",&x);
     int size1= x*2+2 ;
     int arr1[size1][size1];
@@ -183,7 +184,9 @@ int main()
             break ;}
 
     }
-    print(size1,arr1);printf("  Player ONE Score : %d \t\t\t Player TWO Score : %d\n",score1,score2) ;
+    print(size1,arr1);
+    printf(ANSI_COLOR_BLUE "  Player ONE Score : %d "ANSI_COLOR_RESET ,score1) ;
+    printf(ANSI_COLOR_RED "  \t\t\t\t\t\t Player TWO Score : %d\n"ANSI_COLOR_RESET ,score2) ;
 
     return 0;
 }
