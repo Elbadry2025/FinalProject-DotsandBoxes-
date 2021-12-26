@@ -24,7 +24,7 @@ void print(int size1,int arr1[][size1]){
                printf( ANSI_COLOR_WHITE   "%c " ANSI_COLOR_RESET ,arr1[i][j] );
             }else if(arr1[i][j]==178){
                printf( ANSI_COLOR_BLUE   "%c " ANSI_COLOR_RESET ,arr1[i][j] );
-            }else if(arr1[i][j]==177){
+            }else if(arr1[i][j]==219){ ////// 219
                printf( ANSI_COLOR_RED   "%c " ANSI_COLOR_RESET ,arr1[i][j] );
             }else{
                 if(arr1[i][j]==205 || arr1[i][j]==186){
@@ -44,11 +44,11 @@ int Scorefun(int player,int s ,int arr[][s] ){
         for(int j =2 ; j<s ; j+=2){
             if(arr[i][j]!= ' ' &&arr[i+2][j]!= ' '){
                 if(arr[i+1][j-1]!= ' ' && arr[i+1][j+1]!= ' '){
-                    if(arr[i+1][j] != 178 && arr[i+1][j] != 177 ){
+                    if(arr[i+1][j] != 178 && arr[i+1][j] != 219 ){
                         if(player==1){
                            arr[i+1][j] = 178;
                         }else{
-                           arr[i+1][j] = 177;
+                           arr[i+1][j] = 219; ///////////////////////////////// 219
                         }
                         score++;
                     }
@@ -186,7 +186,7 @@ int main()
     }
     print(size1,arr1);
     printf(ANSI_COLOR_BLUE "  Player ONE Score : %d "ANSI_COLOR_RESET ,score1) ;
-    printf(ANSI_COLOR_RED "  \t\t\t\t\t\t Player TWO Score : %d\n"ANSI_COLOR_RESET ,score2) ;
+    printf(ANSI_COLOR_RED "      \t\t\t\t\t\t Player TWO Score : %d\n"ANSI_COLOR_RESET ,score2) ;
 
     return 0;
 }
