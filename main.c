@@ -70,6 +70,7 @@ void GamePlay(int v,int size1, int arr1[][size1],int moves,int score1,int score2
         printf(ANSI_COLOR_GREEN"\n\t\t\t\t\t\t Total Number of Moves: %d\n"ANSI_COLOR_RESET,moves);
         printf(ANSI_COLOR_BLUE"\n \t\t\tCurrent Score Player one : %d "ANSI_COLOR_RESET,score1);
         printf(ANSI_COLOR_RED" \t\t\tCurrent Score Player Two : %d\n\n"ANSI_COLOR_RESET,score2);
+        //if(v!=0){}
         printf(ANSI_COLOR_MAGENTA"Enter row : "ANSI_COLOR_RESET);
         scanf("%d",&y);
         printf(ANSI_COLOR_MAGENTA"Enter column : "ANSI_COLOR_RESET);
@@ -81,19 +82,36 @@ void GamePlay(int v,int size1, int arr1[][size1],int moves,int score1,int score2
         }else{
             if(v==1){
                 if(z%2==0){
-                    arr1[y][z]=196 ;    // for horizontal move
+                    arr1[y][z]=196;    // for horizontal move
                 }else{
                     arr1[y][z]=179;    // for vertical move
                 }
-            }else{
+            }else if(v==2){
                 if(z%2==0){
-                    arr1[y][z]=205 ;    // for horizontal move
+                    arr1[y][z]=205;    // for horizontal move
                 }else{
                     arr1[y][z]=186;    // for vertical move
                 }
+            }else{
+                for(int i=1 ;i<size1 ;i++){
+                    for(int j=1; j<size1;j++){
+                        if(arr1[i][j]==' ' ){
+                            if(j%2==0){
+                                arr1[i][j]=205; break;   // for horizontal move
+                            }else{
+                                arr1[i][j]=186; break ;    // for vertical move
+                            }
+                       }
+                    }
+
+                }
+
+
             }
         }
 }
+
+
 
 int main()
 {
@@ -131,7 +149,12 @@ int main()
         // Player Two
 
         there2 :
-        v=2 ;
+        if(playerNumber==2){
+            v=2 ;
+        }else{
+            v=0 ;
+        }
+
         if(moves<totalmoves){
         GamePlay(v,size1,arr1,moves,score1,score2);
         there4:
