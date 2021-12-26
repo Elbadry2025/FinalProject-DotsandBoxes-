@@ -70,7 +70,7 @@ void GamePlay(int v,int size1, int arr1[][size1],int moves,int score1,int score2
         printf(ANSI_COLOR_GREEN"\n\t\t\t\t\t\t Total Number of Moves: %d\n"ANSI_COLOR_RESET,moves);
         printf(ANSI_COLOR_BLUE"\n \t\t\tCurrent Score Player one : %d "ANSI_COLOR_RESET,score1);
         printf(ANSI_COLOR_RED" \t\t\tCurrent Score Player Two : %d\n\n"ANSI_COLOR_RESET,score2);
-        //if(v!=0){}
+        if(v!=0){
         printf(ANSI_COLOR_MAGENTA"Enter row : "ANSI_COLOR_RESET);
         scanf("%d",&y);
         printf(ANSI_COLOR_MAGENTA"Enter column : "ANSI_COLOR_RESET);
@@ -92,16 +92,23 @@ void GamePlay(int v,int size1, int arr1[][size1],int moves,int score1,int score2
                 }else{
                     arr1[y][z]=186;    // for vertical move
                 }
-            }else{
+            }}else{
+                int flag = 0;
                 for(int i=1 ;i<size1 ;i++){
                     for(int j=1; j<size1;j++){
-                        if(arr1[i][j]==' ' ){
+                        if(arr1[i][j]==' ' && i != j && ((i+j)%2) != 0){
                             if(j%2==0){
-                                arr1[i][j]=205; break;   // for horizontal move
+                                arr1[i][j]=205;   // for horizontal move
+                                flag = 1 ;
+                                break ;
                             }else{
-                                arr1[i][j]=186; break ;    // for vertical move
+                                arr1[i][j]=186;    // for vertical move
+                                flag = 1 ;
+                                break ;
                             }
                        }
+                    }if(flag){
+                        break ;
                     }
 
                 }
