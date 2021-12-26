@@ -58,19 +58,25 @@ int Scorefun(int player,int s ,int arr[][s] ){
     }
     return score;
 }
-void GamePlay(int v,int size1, int arr1[][size1],int moves,int score1,int score2){
+void GamePlay(int playerNumber,int v,int size1, int arr1[][size1],int moves,int score1,int score2){
         int y,z ;
         there3 :
         print(size1,arr1);
         if(v==1){
             printf(ANSI_COLOR_BLUE "\n\n\n\n\t\t\t\t\t\t  Player One's Turn\n"ANSI_COLOR_RESET);
-        }else{
+        }else if(v==2){
             printf(ANSI_COLOR_RED "\n\n\n\n\t\t\t\t\t\t  Player Two's Turn\n"ANSI_COLOR_RESET);
         }
         printf(ANSI_COLOR_GREEN"\n\t\t\t\t\t\t Total Number of Moves: %d\n"ANSI_COLOR_RESET,moves);
-        printf(ANSI_COLOR_BLUE"\n \t\t\tCurrent Score Player one : %d "ANSI_COLOR_RESET,score1);
-        printf(ANSI_COLOR_RED" \t\t\tCurrent Score Player Two : %d\n\n"ANSI_COLOR_RESET,score2);
-        if(v!=0){
+        printf(ANSI_COLOR_BLUE"\n \t\t\tCurrent Score of Player one : %d "ANSI_COLOR_RESET,score1);
+        if(playerNumber==2){
+        printf(ANSI_COLOR_RED" \t\t\tCurrent Score of Player Two : %d\n\n"ANSI_COLOR_RESET,score2);
+        }else{
+        printf(ANSI_COLOR_RED" \t\t\tCurrent Score of Computer : %d\n\n"ANSI_COLOR_RESET,score2);
+        }
+        if(v==0){
+            goto there5;
+        }
         printf(ANSI_COLOR_MAGENTA"Enter row : "ANSI_COLOR_RESET);
         scanf("%d",&y);
         printf(ANSI_COLOR_MAGENTA"Enter column : "ANSI_COLOR_RESET);
@@ -92,8 +98,9 @@ void GamePlay(int v,int size1, int arr1[][size1],int moves,int score1,int score2
                 }else{
                     arr1[y][z]=186;    // for vertical move
                 }
-            }}else{
+            }else{
                 int flag = 0;
+                there5:
                 for(int i=1 ;i<size1 ;i++){
                     for(int j=1; j<size1;j++){
                         if(arr1[i][j]==' ' && i != j && ((i+j)%2) != 0){
@@ -144,7 +151,7 @@ int main()
     there :
     while(moves<totalmoves){
         v=1 ;
-        GamePlay(v,size1,arr1,moves,score1,score2);
+        GamePlay(playerNumber,v,size1,arr1,moves,score1,score2);
         system("cls");
         moves++;
         if(moves>totalmoves){break ;}
@@ -163,7 +170,7 @@ int main()
         }
 
         if(moves<totalmoves){
-        GamePlay(v,size1,arr1,moves,score1,score2);
+        GamePlay(playerNumber,v,size1,arr1,moves,score1,score2);
         there4:
         system("cls");
         moves++;
