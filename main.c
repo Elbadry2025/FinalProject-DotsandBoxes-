@@ -59,7 +59,7 @@ int Scorefun(int player,int s ,int arr[][s] ){
     }
     return score;
 }
-void GamePlay(int playerNumber,int v,int size1, int arr1[][size1],int moves,int score1,int score2){
+void GamePlay(int playerNumber,int v,int size1, int arr1[][size1],int moves,int score1,int score2,int MovesHist[][2]){
         int y,z ;
         there3 :
         print(size1,arr1);
@@ -82,11 +82,19 @@ void GamePlay(int playerNumber,int v,int size1, int arr1[][size1],int moves,int 
         scanf("%d",&y);
         printf(ANSI_COLOR_MAGENTA"Enter column : "ANSI_COLOR_RESET);
         scanf("%d",&z);
+        if(y==100 && z== 100){
+            Undo(y ,z, MovesHist, moves, size1, arr1);
+            moves--;
+            system("cls");
+            goto there3 ;
+        }
         if(y==z || (y%2==0)&&(z%2==0)|| (y%2==1)&&(z%2==1)||y==0||z==0 || arr1[y][z]!=' '){
                 system("cls");
                 printf("Invalid Move Please Try Again\n\n");
                 goto there3;
         }else{
+            MovesHist[moves+1][0]= y ;
+            MovesHist[moves+1][1]= z ;
             if(v==1){
                 if(z%2==0){
                     arr1[y][z]=196;    // for horizontal move
@@ -125,7 +133,11 @@ void GamePlay(int playerNumber,int v,int size1, int arr1[][size1],int moves,int 
             }
         }
 }
-
+void Undo (int y ,int z, int MovesHist[][2],int moves,int Size1, int arr1[][Size1]){
+    int row = MovesHist[moves-1][0];
+    int column = MovesHist[moves-1][1];
+    arr1[row][column]=' ';
+}
 
 
 int main()
@@ -149,11 +161,12 @@ int main()
     int score1 =0 ; int score2 =0;
     int moves=0;
     int totalmoves= 2*x*(x+1);
+    int MovesHist[totalmoves][2];
     system("cls");
     there :
     while(moves<totalmoves){
         v=1 ;
-        GamePlay(playerNumber,v,size1,arr1,moves,score1,score2);
+        GamePlay(playerNumber,v,size1,arr1,moves,score1,score2,MovesHist);
         system("cls");
         moves++;
         if(moves>totalmoves){break ;}
@@ -172,7 +185,7 @@ int main()
         }
 
         if(moves<totalmoves){
-        GamePlay(playerNumber,v,size1,arr1,moves,score1,score2);
+        GamePlay(playerNumber,v,size1,arr1,moves,score1,score2,MovesHist);
         there4:
         system("cls");
         moves++;
