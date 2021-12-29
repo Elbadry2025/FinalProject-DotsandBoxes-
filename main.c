@@ -95,6 +95,12 @@ void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,Histo
         scanf("%d",&z);
         if(y==100 && z==100){
             UndoRedo(size1,arr1,totalmoves,U);
+        if(playerNumber==1){
+            while(v!=1){
+                UndoRedo(size1,arr1,totalmoves,U);
+            }
+
+        }
             system("cls");
             goto there3;
         }
