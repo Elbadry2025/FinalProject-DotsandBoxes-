@@ -201,7 +201,7 @@ int main()
                 playes.arr[i][j] = arr1[i][j] ;
                 }
         }
-        U[moves]= playes ;
+        //U[moves]= playes ;
 
 
        /* for(int i=0 ;i<size1; i++){
@@ -215,6 +215,7 @@ int main()
     while(moves<totalmoves){
         v=1 ;
         playes.WhichPlayer = v ;
+        U[moves]= playes ;
         GamePlay(playerNumber,size1,arr1,totalmoves,U);
         system("cls");
         moves++;
@@ -230,7 +231,7 @@ int main()
         score1 += tempScore1 ;
         playes.scoreplayer1 = score1;
         playes.scoreplayer2 = score2;
-        U[moves]=playes ;
+        //U[moves]=playes ;
         if(tempScore1){
             goto there;
         }
@@ -254,7 +255,8 @@ int main()
         }
 
         if(moves<totalmoves){
-                playes.WhichPlayer = v ;
+        playes.WhichPlayer = v ;
+        U[moves]= playes ;
         GamePlay(playerNumber,size1,arr1,totalmoves,U);
         there4:
         system("cls");
