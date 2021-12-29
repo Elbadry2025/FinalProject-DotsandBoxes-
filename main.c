@@ -223,6 +223,10 @@ int main()
         playes.WhichPlayer = v ;
         U[moves]= playes ;
         GamePlay(playerNumber,size1,arr1,totalmoves,U);
+        if(v !=1){
+            system("cls");
+            goto there;
+        }
         system("cls");
         moves++;
         playes.move = moves ;
@@ -259,11 +263,14 @@ int main()
         }else{
             v=0 ;
         }
-
         if(moves<totalmoves){
         playes.WhichPlayer = v ;
         U[moves]= playes ;
         GamePlay(playerNumber,size1,arr1,totalmoves,U);
+        if(v !=2 && v!=0){
+            system("cls");
+            goto there2;
+        }
         there4:
         system("cls");
         moves++;
