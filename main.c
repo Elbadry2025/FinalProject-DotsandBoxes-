@@ -95,7 +95,7 @@ void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,Histo
         scanf("%d",&y);
         printf(ANSI_COLOR_MAGENTA"Enter column : "ANSI_COLOR_RESET);
         scanf("%d",&z);
-        if(y==100 && z==100){
+        if(y==0 && z==0 && moves != 0){
                 counter++ ;
             Undo(size1,arr1,totalmoves,U);
             if(playerNumber==1){
@@ -106,8 +106,9 @@ void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,Histo
 
             return;
         }
-        if(y==200 && z==200 && counter--){
+        if(y==1 && z==1 && counter){
             Redo(size1,arr1,totalmoves,U);
+            counter--;
             if(playerNumber==1){
                 while(v!=1){
                     Redo(size1,arr1,totalmoves,U);
@@ -155,7 +156,6 @@ void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,Histo
                     }
 
                 }
-
 
             }
         }
@@ -228,11 +228,17 @@ int main()
     while(moves<totalmoves){
         v=1 ;
         GamePlay(playerNumber,size1,arr1,totalmoves,U);
-        if((y==100 && z==100)|| (y=200 && z==200)){
+        if((y==0 && z==0)/*|| (y=200 && z==200)*/){
         if(v==1){
             goto there ;
         }else {
             goto there2 ;
+        }
+        }else if(y=1 && z==1){
+        if(v==1){
+            goto there2 ;
+        }else {
+            goto there ;
         }
         }
         system("cls");
@@ -265,11 +271,17 @@ int main()
 
         if(moves<totalmoves){
         GamePlay(playerNumber,size1,arr1,totalmoves,U);
-        if((y==100 && z==100) || (y=200 && z==200)){
+        if((y==0 && z==0) /*|| (y=200 && z==200)*/){
         if(v==1){
             goto there ;
         }else {
             goto there2 ;
+        }
+        }else if(y ==1 && z == 1){
+        if(v==1){
+            goto there2 ;
+        }else {
+            goto there ;
         }
         }
         system("cls");
