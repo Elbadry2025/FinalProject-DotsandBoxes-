@@ -236,10 +236,11 @@ int main()
         if(v !=1){
         moveshist(totalmoves ,size1 ,arr1, U);
             system("cls");
-            goto there;
+            goto jump3;
         }
         system("cls");
         moves++;
+        jump4:
         playes.move = moves ;
         if(moves>totalmoves){break ;}
         int tempScore1 = Scorefun(v,size1,arr1);
@@ -268,11 +269,12 @@ int main()
         if(v !=2 && v!=0){
         moveshist(totalmoves ,size1 ,arr1,  U);
             system("cls");
-            goto there2;
+            goto jump4;
         }
         there4:
         system("cls");
         moves++;
+        jump3:
         playes.move = moves ;
         int tempScore2 = Scorefun(v,size1, arr1);
         for(int i=0 ;i<size1; i++){
