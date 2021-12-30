@@ -198,7 +198,7 @@ void moveshist(int totalmoves ,int size1 , int arr1[][size1] ,History U[totalmov
         playes.move = moves ;
         U[moves]=playes ;
 }
-
+ //
 int main()
 {
     system(" ");
