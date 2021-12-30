@@ -9,6 +9,7 @@
 #define ANSI_COLOR_CYAN    "\x1b[36m"
 #define ANSI_COLOR_WHITE   "\x1b[97m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
+int counter =0 ;
 int v =1;
 int y,z ;
 int moves=0;
@@ -95,10 +96,21 @@ void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,Histo
         printf(ANSI_COLOR_MAGENTA"Enter column : "ANSI_COLOR_RESET);
         scanf("%d",&z);
         if(y==100 && z==100){
-            UndoRedo(size1,arr1,totalmoves,U);
+                counter++ ;
+            Undo(size1,arr1,totalmoves,U);
             if(playerNumber==1){
                 while(v!=1){
-                    UndoRedo(size1,arr1,totalmoves,U);
+                    Undo(size1,arr1,totalmoves,U);
+                }
+            }
+
+            return;
+        }
+        if(y==200 && z==200 && counter--){
+            Redo(size1,arr1,totalmoves,U);
+            if(playerNumber==1){
+                while(v!=1){
+                    Redo(size1,arr1,totalmoves,U);
                 }
             }
 
@@ -109,6 +121,7 @@ void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,Histo
                 printf("Invalid Move Please Try Again\n\n");
                 goto there3;
         }else{
+            counter=0 ;
             if(v==1){
                 if(z%2==0){
                     arr1[y][z]=196;    // for horizontal move
@@ -148,7 +161,7 @@ void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,Histo
         }
 }
 
-void UndoRedo(int size1,int arr1[][size1],int totalmoves,History U[totalmoves+1]){
+void Undo(int size1,int arr1[][size1],int totalmoves,History U[totalmoves+1]){
     //moves = U[moves-1].move ;
     v = U[moves].WhichPlayer ;
     score1=U[moves-1].scoreplayer1 ;
@@ -160,6 +173,20 @@ void UndoRedo(int size1,int arr1[][size1],int totalmoves,History U[totalmoves+1]
         }
         moves--;
 }
+
+void Redo(int size1,int arr1[][size1],int totalmoves,History U[totalmoves+1]){
+    //moves = U[moves-1].move ;
+    v = U[moves].WhichPlayer ;
+    score1=U[moves+1].scoreplayer1 ;
+    score2=U[moves+1].scoreplayer2 ;
+    for(int i=0 ;i<size1; i++){
+        for(int j=0 ; j<size1 ; j++){
+            arr1[i][j]=U[moves+1].arr[i][j] ;
+                }
+        }
+        moves++;
+}
+
 
 
 
@@ -201,7 +228,7 @@ int main()
     while(moves<totalmoves){
         v=1 ;
         GamePlay(playerNumber,size1,arr1,totalmoves,U);
-        if(y==100 & z==100){
+        if((y==100 && z==100)|| (y=200 && z==200)){
         if(v==1){
             goto there ;
         }else {
@@ -238,7 +265,7 @@ int main()
 
         if(moves<totalmoves){
         GamePlay(playerNumber,size1,arr1,totalmoves,U);
-        if(y==100 & z==100){
+        if((y==100 && z==100) || (y=200 && z==200)){
         if(v==1){
             goto there ;
         }else {
