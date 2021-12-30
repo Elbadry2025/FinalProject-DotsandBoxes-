@@ -9,6 +9,7 @@
 #define ANSI_COLOR_CYAN    "\x1b[36m"
 #define ANSI_COLOR_WHITE   "\x1b[97m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
+#define MAXSIZE 22
 int v =1; // represent which player is playing
 int moves=0;
 int score1=0;
@@ -16,7 +17,7 @@ int score2=0;
 int counter = 0 ;
 typedef struct{
     int WhichPlayer ;
-    int arr[12][12];
+    int arr[MAXSIZE][MAXSIZE];
     int move;
     int scoreplayer1;
     int scoreplayer2;
@@ -88,14 +89,15 @@ void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,Histo
         }else{
             printf(ANSI_COLOR_RED" \t\t\tCurrent Score of Computer : %d\n\n"ANSI_COLOR_RESET,score2);
         }
+            printf(ANSI_COLOR_YELLOW"**Enter 0,0 for UNDO and 1,1 for REDO** \n\n"ANSI_COLOR_RESET);
         if(v==0){
             goto there5;
         }
-        printf(ANSI_COLOR_MAGENTA"Enter row : "ANSI_COLOR_RESET);
+        printf(ANSI_COLOR_MAGENTA"%c Enter row : " ANSI_COLOR_RESET,16);
         scanf("%d",&y);
-        printf(ANSI_COLOR_MAGENTA"Enter column : "ANSI_COLOR_RESET);
+        printf(ANSI_COLOR_MAGENTA"%c Enter column : "ANSI_COLOR_RESET,16);
         scanf("%d",&z);
-        if(y==0 && z==0 && moves != 0){
+        if(y==0 && z==0 && moves != 0){          // For Undo
             counter++ ;
             Undo(size1,arr1,totalmoves,U);
             if(playerNumber==1){
@@ -107,7 +109,7 @@ void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,Histo
             goto there3;
         }
         //////////////////////////////////
-        if(y==1 && z==1 && counter){
+        if(y==1 && z==1 && counter){                //For Redo
             counter-- ;
             Redo(size1,arr1,totalmoves,U) ;
             if(playerNumber==1){
@@ -195,11 +197,9 @@ void moveshist(int totalmoves ,int size1 , int arr1[][size1] ,History U[totalmov
     playes.WhichPlayer = v ;
     playes.scoreplayer1 = score1;
     playes.scoreplayer2 = score2;
-    //moves++;
     playes.move = moves ;
     U[moves]=playes ;
 }
- //
 int main()
 {
     system(" ");
@@ -220,19 +220,9 @@ int main()
     int totalmoves= 2*x*(x+1);
     system("cls");
     History U[totalmoves+1];
-    /*playes.move = moves ;
-    playes.scoreplayer1 = score1;
-    playes.scoreplayer2 = score2;
-    for(int i=0 ;i<size1; i++){
-        for(int j=0 ; j<size1 ; j++){
-            playes.arr[i][j] = arr1[i][j] ;
-        }
-    }*/
     there :
     while(moves<totalmoves){
         v=1 ;
-        /*playes.WhichPlayer = v ;
-        U[moves]= playes ;*/
         moveshist(totalmoves ,size1 ,arr1, U );
         GamePlay(playerNumber,size1,arr1,totalmoves,U);
         if(v !=1){
