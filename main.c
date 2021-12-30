@@ -195,7 +195,7 @@ void moveshist(int totalmoves ,int size1 , int arr1[][size1] ,History U[totalmov
     playes.WhichPlayer = v ;
     playes.scoreplayer1 = score1;
     playes.scoreplayer2 = score2;
-    moves++;
+    //moves++;
     playes.move = moves ;
     U[moves]=playes ;
 }
@@ -220,21 +220,23 @@ int main()
     int totalmoves= 2*x*(x+1);
     system("cls");
     History U[totalmoves+1];
-    playes.move = moves ;
+    /*playes.move = moves ;
     playes.scoreplayer1 = score1;
     playes.scoreplayer2 = score2;
     for(int i=0 ;i<size1; i++){
         for(int j=0 ; j<size1 ; j++){
             playes.arr[i][j] = arr1[i][j] ;
         }
-    }
+    }*/
     there :
     while(moves<totalmoves){
         v=1 ;
-        playes.WhichPlayer = v ;
-        U[moves]= playes ;
+        /*playes.WhichPlayer = v ;
+        U[moves]= playes ;*/
+        moveshist(totalmoves ,size1 ,arr1, U );
         GamePlay(playerNumber,size1,arr1,totalmoves,U);
         if(v !=1){
+            moves++ ;
             moveshist(totalmoves ,size1 ,arr1, U );
             system("cls");
             goto jump3;
@@ -268,6 +270,7 @@ int main()
             U[moves]= playes ;
             GamePlay(playerNumber,size1,arr1,totalmoves,U );
             if(v !=2 && v!=0){
+                moves++ ;
                 moveshist(totalmoves ,size1 ,arr1,  U);
                 system("cls");
                 goto jump4;
