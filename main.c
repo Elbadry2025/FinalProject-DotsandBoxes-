@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 #include "grid.h"
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"
@@ -15,7 +16,9 @@ int v =1; // represent which player is playing
 int moves=0;
 int score1=0;
 int score2=0;
-int counter = 0 ;
+int counter=0;
+int counter1=0;
+time_t t2;
 typedef struct{
     int WhichPlayer ;
     int arr[MAXSIZE][MAXSIZE];
@@ -74,12 +77,19 @@ int Scorefun(int player,int s ,int arr[][s] ){
     }
     return score;
 }
-void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,History U[totalmoves+1]){
+void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,History U[totalmoves+1],time_t t1){
     time_t t = time(0);
-    char *time = ctime(&t);
-   // printf(ANSI_COLOR_CYAN"Date: %s"ANSI_COLOR_RESET,time) ;
+    char *ti = ctime(&t);
         int y,z ;
         there3 :
+        if(counter1==0){
+            printf(ANSI_COLOR_CYAN"Date: %s"ANSI_COLOR_RESET,ti) ;
+            printf(ANSI_COLOR_YELLOW"Time Passed : 00:00"ANSI_COLOR_RESET);
+            counter1++ ;
+        }else {
+            printf(ANSI_COLOR_CYAN"Date: %s"ANSI_COLOR_RESET,ti) ;
+            printf(ANSI_COLOR_YELLOW"Time Passed : %02d:%02.f"ANSI_COLOR_RESET,(int)difftime(t2,t1)/60, fmod(difftime(t2,t1),60));
+        }
         print(size1,arr1);
         if(v==1){
             printf("\x1b[34;5m" " \n\n\n\n\t\t\t\t\t\t  Player One's Turn\n"ANSI_COLOR_RESET);
@@ -101,6 +111,7 @@ void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,Histo
         scanf("%d",&y);
         printf(ANSI_COLOR_MAGENTA"%c Enter column : "ANSI_COLOR_RESET,16);
         scanf("%d",&z);
+        t2 = time(0) ;
         if(y==0 && z==0 && moves != 0){          // For Undo
             counter++ ;
             Undo(size1,arr1,totalmoves,U);
@@ -207,8 +218,8 @@ void moveshist(int totalmoves ,int size1 , int arr1[][size1] ,History U[totalmov
 int main()
 {
     time_t t1;
-    time_t t2;
-    time_t t3;
+   // time_t t2;
+    //time_t t3;
     system(" ");
     int x;
     int playerNumber ;
@@ -228,13 +239,13 @@ int main()
     system("cls");
     History U[totalmoves+1];
     t1=time(0);
-    printf(ANSI_COLOR_YELLOW"Time Passed : 00:00"ANSI_COLOR_RESET);
+   // printf(ANSI_COLOR_YELLOW"Time Passed : 00:00"ANSI_COLOR_RESET);
     there :
     while(moves<totalmoves){
         v=1 ;
         moveshist(totalmoves ,size1 ,arr1, U );
-        GamePlay(playerNumber,size1,arr1,totalmoves,U);
-        t2=time(0);
+        GamePlay(playerNumber,size1,arr1,totalmoves,U,t1);
+        //t2=time(0);
        // printf("%f",difftime(t2,t1)/60);
         if(v !=1){
             moves++ ;
@@ -243,7 +254,7 @@ int main()
             goto jump3;
         }
         system("cls");
-        printf(ANSI_COLOR_YELLOW"Time Passed : %02.f:%02.f"ANSI_COLOR_RESET,difftime(t2,t1)/60,difftime(t2,t1));
+      //  printf(ANSI_COLOR_YELLOW"Time Passed : %02.f:%02.f"ANSI_COLOR_RESET,difftime(t2,t1)/60,difftime(t2,t1));
         moves++;
         jump4:
         playes.move = moves ;
@@ -270,8 +281,8 @@ int main()
         if(moves<totalmoves){
             playes.WhichPlayer = v ;
             U[moves]= playes ;
-            GamePlay(playerNumber,size1,arr1,totalmoves,U );
-            t3=time(0);
+            GamePlay(playerNumber,size1,arr1,totalmoves,U ,t1);
+           // t3=time(0);
           //  printf("%lf",difftime(t2,t1)/60);
             if(v !=2 && v!=0){
                 moves++ ;
@@ -281,7 +292,7 @@ int main()
             }
         there4:
         system("cls");
-        printf(ANSI_COLOR_YELLOW"Time Passed : %02.f:%02.f"ANSI_COLOR_RESET,difftime(t3,t1)/60,difftime(t3,t1));
+       // printf(ANSI_COLOR_YELLOW"Time Passed : %02.f:%02.f"ANSI_COLOR_RESET,difftime(t3,t1)/60,difftime(t3,t1));
         moves++;
         jump3:
         playes.move = moves ;

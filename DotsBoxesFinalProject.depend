@@ -13,10 +13,11 @@
 
 1640204316 c:\users\dell\desktop\dotsboxesfinalproject\grid.h
 
-1641000226 source:c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\main.c
+1641042385 source:c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
+	<math.h>
 	"grid.h"
 
 1640204316 c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\grid.h
