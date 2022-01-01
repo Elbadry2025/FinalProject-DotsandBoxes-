@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "grid.h"
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"
@@ -74,6 +75,9 @@ int Scorefun(int player,int s ,int arr[][s] ){
     return score;
 }
 void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,History U[totalmoves+1]){
+    time_t t = time(0);
+    char *time = ctime(&t);
+   // printf(ANSI_COLOR_CYAN"Date: %s"ANSI_COLOR_RESET,time) ;
         int y,z ;
         there3 :
         print(size1,arr1);
@@ -202,6 +206,9 @@ void moveshist(int totalmoves ,int size1 , int arr1[][size1] ,History U[totalmov
 }
 int main()
 {
+    time_t t1;
+    time_t t2;
+    time_t t3;
     system(" ");
     int x;
     int playerNumber ;
@@ -220,11 +227,15 @@ int main()
     int totalmoves= 2*x*(x+1);
     system("cls");
     History U[totalmoves+1];
+    t1=time(0);
+    printf(ANSI_COLOR_YELLOW"Time Passed : 00:00"ANSI_COLOR_RESET);
     there :
     while(moves<totalmoves){
         v=1 ;
         moveshist(totalmoves ,size1 ,arr1, U );
         GamePlay(playerNumber,size1,arr1,totalmoves,U);
+        t2=time(0);
+       // printf("%f",difftime(t2,t1)/60);
         if(v !=1){
             moves++ ;
             moveshist(totalmoves ,size1 ,arr1, U );
@@ -232,6 +243,7 @@ int main()
             goto jump3;
         }
         system("cls");
+        printf(ANSI_COLOR_YELLOW"Time Passed : %02.f:%02.f"ANSI_COLOR_RESET,difftime(t2,t1)/60,difftime(t2,t1));
         moves++;
         jump4:
         playes.move = moves ;
@@ -259,6 +271,8 @@ int main()
             playes.WhichPlayer = v ;
             U[moves]= playes ;
             GamePlay(playerNumber,size1,arr1,totalmoves,U );
+            t3=time(0);
+          //  printf("%lf",difftime(t2,t1)/60);
             if(v !=2 && v!=0){
                 moves++ ;
                 moveshist(totalmoves ,size1 ,arr1,  U);
@@ -267,6 +281,7 @@ int main()
             }
         there4:
         system("cls");
+        printf(ANSI_COLOR_YELLOW"Time Passed : %02.f:%02.f"ANSI_COLOR_RESET,difftime(t3,t1)/60,difftime(t3,t1));
         moves++;
         jump3:
         playes.move = moves ;
