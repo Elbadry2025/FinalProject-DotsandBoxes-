@@ -13,13 +13,21 @@
 
 1640204316 c:\users\dell\desktop\dotsboxesfinalproject\grid.h
 
-1641566849 source:c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\main.c
+1641570231 source:c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	<math.h>
 	<conio.h>
 	"grid.h"
+	"mainMenu.h"
+	"print.h"
+	"Scorefun.h"
+	"GamePlay.h"
+	"Undo.h"
+	"Redo.h"
+	"moveshist.h"
+	"AI.h"
 
 1640204316 c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\grid.h
 
@@ -32,4 +40,20 @@
 	"grid.h"
 
 1640461400 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\grid.h
+
+1641570291 c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\mainmenu.h
+
+1641568770 c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\print.h
+
+1641568283 c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\scorefun.h
+
+1641568724 c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\gameplay.h
+
+1641569722 c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\undo.h
+
+1641569798 c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\redo.h
+
+1641569876 c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\moveshist.h
+
+1641569961 c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\ai.h
 
