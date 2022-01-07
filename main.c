@@ -18,9 +18,8 @@ int main()
     mainMenu();
     time_t t1;
     system(" ");
-    /*int x;
-    int playerNumber ;*/
-    if(l1!=1){
+    int x;
+    int playerNumber ;
     scanf("%d",&playerNumber);
     system("cls");
     while(playerNumber != 1 && playerNumber != 2){
@@ -43,14 +42,11 @@ int main()
     totalmoves= 2*x*(x+1);
     system("cls");
     History U[totalmoves+1];
-    }
     t1=time(0);
     there :
     while(moves<totalmoves){
-        if(l1!=1){
-           v=1 ;
-        }
-       // v=1 ;
+        v=1 ;
+        jum2:
         moveshist(moves1 ,moves2 ,totalmoves ,size1 ,arr1, U );
         GamePlay(playerNumber,size1,arr1,totalmoves,U,t1);
         if(v !=1){

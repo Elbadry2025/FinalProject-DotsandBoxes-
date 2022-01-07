@@ -56,7 +56,6 @@ void mainMenu(){
             printf("Enter the saved file number 1 or 2 or 3: ");
             scanf("%d" ,&chooseFile);
             LoadFun();
-            l1=1 ;
             if(chooseFile != 1 && chooseFile != 2 && chooseFile != 3){
                 system("cls");
                 goto jump5;
