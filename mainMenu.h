@@ -31,6 +31,7 @@ typedef struct{
     int scoreplayer2;
     }History;
 History playes ;
+
 typedef struct {
 int score;
 char name[30];
@@ -49,6 +50,7 @@ void mainMenu(){
         case 1:
             system("cls");
             printf(ANSI_COLOR_YELLOW "For 1 player mode enter (1)\n\nFor 2 player mode enter (2)\n"ANSI_COLOR_RESET );
+            scanf("%d",&playerNumber);
             break;
         case 2:
             jump5:

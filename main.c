@@ -19,8 +19,6 @@ int main()
     time_t t1;
     system(" ");
     int x;
-    int playerNumber ;
-    scanf("%d",&playerNumber);
     system("cls");
     while(playerNumber != 1 && playerNumber != 2){
         printf("Enter 1 or 2 please : ");
@@ -46,7 +44,6 @@ int main()
     there :
     while(moves<totalmoves){
         v=1 ;
-        jum2:
         moveshist(moves1 ,moves2 ,totalmoves ,size1 ,arr1, U );
         GamePlay(playerNumber,size1,arr1,totalmoves,U,t1);
         if(v !=1){
