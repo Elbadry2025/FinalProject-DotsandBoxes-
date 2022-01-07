@@ -4,6 +4,7 @@
 #include <math.h>
 #include <conio.h>
 #include "grid.h"
+#include "mainMenu.h"
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"
 #define ANSI_COLOR_YELLOW  "\x1b[33m"
@@ -33,7 +34,7 @@ typedef struct{
     }History;
 History playes ;
 
-void mainMenu(){
+/*void mainMenu(){
     int choice;
     int chooseFile;
     printf("\t\t\t\t\t  **Welcome to Dots and Boxes**\n\t\t\t\t\t\tproject made by\n\t\t\t\t\tELbadry Elbadry & Mohamed Hassan");
@@ -60,7 +61,7 @@ void mainMenu(){
             system("cls");
             mainMenu();
     }
-}
+}*/
 typedef struct{
 
     int playerscore ;
@@ -202,24 +203,7 @@ void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,Histo
             }else{
                 int flag = 0;
                 there5:
-                for(int i=1 ;i<size1 ;i++){
-                    for(int j=1; j<size1;j++){
-                        if(arr1[i][j]==' ' && i != j && ((i+j)%2) != 0){
-                            if(j%2==0){
-                                arr1[i][j]=205;   // for horizontal move
-                                flag = 1 ;
-                                break ;
-                            }else{
-                                arr1[i][j]=186;    // for vertical move
-                                flag = 1 ;
-                                break ;
-                            }
-                       }
-                    }if(flag){
-                        break ;
-                    }
-
-                }
+                AI(size1,arr1,flag) ;               //Computer Turn
 
             }
         }
@@ -274,6 +258,53 @@ void moveshist(int moves1 ,int moves2 ,int totalmoves ,int size1 , int arr1[][si
     U[moves]=playes ;
 }
 
+
+
+void AI (int size1 , int arr1[][size1],int flag){
+for(int i = 1; i<size1; i+=2){
+        for(int j =2 ; j<size1 ; j+=2){
+            if(arr1[i][j]!= ' ' &&arr1[i+2][j]!= ' '){
+                if(arr1[i+1][j-1]!= ' ' && arr1[i+1][j+1]== ' '){
+                    arr1[i+1][j+1]= 186 ;
+                    return ;
+                }else if(arr1[i+1][j-1]== ' ' && arr1[i+1][j+1]!= ' '){
+                    arr1[i+1][j-1]= 186 ;
+                    return ;
+
+                }
+            }
+            if(arr1[i+1][j-1]!= ' ' && arr1[i+1][j+1]!= ' '){
+                if(arr1[i][j]!= ' ' &&arr1[i+2][j]== ' '){
+                    arr1[i+2][j]= 205;
+                    return ;
+                }else if(arr1[i][j]== ' ' &&arr1[i+2][j]!= ' '){
+                    arr1[i][j]=205 ;
+
+                }
+            }
+        }
+    }
+
+for(int i=1 ;i<size1 ;i++){
+    for(int j=1; j<size1;j++){
+        if(arr1[i][j]==' ' && i != j && ((i+j)%2) != 0){
+            if(j%2==0){
+                arr1[i][j]=205;   // for horizontal move
+                flag = 1 ;
+                break ;
+            }else{
+                arr1[i][j]=186;    // for vertical move
+                flag = 1 ;
+                break ;
+            }
+            }
+            }if(flag){
+                break ;
+            }
+
+            }
+
+}
 int main()
 {
     mainMenu();
