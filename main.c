@@ -7,6 +7,7 @@
 #include "mainMenu.h"
 #include "print.h"
 #include "Scorefun.h"
+#include "SaveFun.h"
 #include "GamePlay.h"
 #include "Undo.h"
 #include "Redo.h"
@@ -17,8 +18,9 @@ int main()
     mainMenu();
     time_t t1;
     system(" ");
-    int x;
-    int playerNumber ;
+    /*int x;
+    int playerNumber ;*/
+    if(l1!=1){
     scanf("%d",&playerNumber);
     system("cls");
     while(playerNumber != 1 && playerNumber != 2){
@@ -35,16 +37,20 @@ int main()
 
     printf(ANSI_COLOR_YELLOW"Enter (N) The size of The Grid which is NxN boxes : "ANSI_COLOR_RESET);
     scanf("%d",&x);
-    int size1= x*2+2 ;
+    size1= x*2+2 ;
     int arr1[size1][size1];
     grid(size1,arr1);
-    int totalmoves= 2*x*(x+1);
+    totalmoves= 2*x*(x+1);
     system("cls");
     History U[totalmoves+1];
+    }
     t1=time(0);
     there :
     while(moves<totalmoves){
-        v=1 ;
+        if(l1!=1){
+           v=1 ;
+        }
+       // v=1 ;
         moveshist(moves1 ,moves2 ,totalmoves ,size1 ,arr1, U );
         GamePlay(playerNumber,size1,arr1,totalmoves,U,t1);
         if(v !=1){

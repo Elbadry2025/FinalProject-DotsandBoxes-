@@ -8,6 +8,7 @@
 #define ANSI_COLOR_RESET   "\x1b[0m"
 #define MAXSIZE 22
 int v =1; // represent which player is playing
+int size1=0 ;
 int moves=0;
 int moves1 =0;
 int moves2 =0;
@@ -15,6 +16,10 @@ int score1=0;
 int score2=0;
 int counter=0;
 int counter1=0;
+int l1=0 ;
+int x;
+int playerNumber ;
+int totalmoves ;
 time_t t2;
 typedef struct{
     int WhichPlayer ;
@@ -50,6 +55,8 @@ void mainMenu(){
             system("cls");
             printf("Enter the saved file number 1 or 2 or 3: ");
             scanf("%d" ,&chooseFile);
+            LoadFun();
+            l1=1 ;
             if(chooseFile != 1 && chooseFile != 2 && chooseFile != 3){
                 system("cls");
                 goto jump5;
