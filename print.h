@@ -1,4 +1,3 @@
-
 void print(int size1,int arr1[][size1]){
     printf("\n\t\t\t\t\t\t    "); //
     for(int j=1 ;j<size1 ;j++){

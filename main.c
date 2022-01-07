@@ -3,36 +3,7 @@
 #include <time.h>
 #include <math.h>
 #include <conio.h>
-#define ANSI_COLOR_RED     "\x1b[31m"
-#define ANSI_COLOR_GREEN   "\x1b[32m"
-#define ANSI_COLOR_YELLOW  "\x1b[33m"
-#define ANSI_COLOR_BLUE    "\x1b[34m"
-#define ANSI_COLOR_MAGENTA "\x1b[35m"
-#define ANSI_COLOR_CYAN    "\x1b[36m"
-#define ANSI_COLOR_WHITE   "\x1b[97m"
-#define ANSI_COLOR_RESET   "\x1b[0m"
-#define MAXSIZE 22
-int v =1; // represent which player is playing
-int moves=0;
-int moves1 =0;
-int moves2 =0;
-int score1=0;
-int score2=0;
-int counter=0;
-int counter1=0;
-time_t t2;
-typedef struct{
-    int WhichPlayer ;
-    int arr[MAXSIZE][MAXSIZE];
-    int move;
-    int move1;
-    int move2;
-    int scoreplayer1;
-    int scoreplayer2;
-    }History;
-History playes ;
-//Calling all functions
-#include "grid.h"
+#include "grid.h" //Calling all functions
 #include "mainMenu.h"
 #include "print.h"
 #include "Scorefun.h"
@@ -41,11 +12,6 @@ History playes ;
 #include "Redo.h"
 #include "moveshist.h"
 #include "AI.h"
-
-typedef struct{
-    int playerscore ;
-}playerInfo;
-
 int main()
 {
     mainMenu();
@@ -53,12 +19,20 @@ int main()
     system(" ");
     int x;
     int playerNumber ;
-    scanf("%d" , &playerNumber);
+    scanf("%d",&playerNumber);
     system("cls");
     while(playerNumber != 1 && playerNumber != 2){
         printf("Enter 1 or 2 please : ");
         scanf("%d" , &playerNumber);
     }
+    printf("Player one Name: ");
+    scanf("%s",p1.name);
+    if(playerNumber==2){
+        printf("Player two Name: ");
+       scanf("%s",p2.name);
+        system("cls");
+    }
+
     printf(ANSI_COLOR_YELLOW"Enter (N) The size of The Grid which is NxN boxes : "ANSI_COLOR_RESET);
     scanf("%d",&x);
     int size1= x*2+2 ;

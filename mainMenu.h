@@ -6,6 +6,33 @@
 #define ANSI_COLOR_CYAN    "\x1b[36m"
 #define ANSI_COLOR_WHITE   "\x1b[97m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
+#define MAXSIZE 22
+int v =1; // represent which player is playing
+int moves=0;
+int moves1 =0;
+int moves2 =0;
+int score1=0;
+int score2=0;
+int counter=0;
+int counter1=0;
+time_t t2;
+typedef struct{
+    int WhichPlayer ;
+    int arr[MAXSIZE][MAXSIZE];
+    int move;
+    int move1;
+    int move2;
+    int scoreplayer1;
+    int scoreplayer2;
+    }History;
+History playes ;
+typedef struct {
+int score;
+char name[30];
+}playerInfo;
+playerInfo p1 ;
+playerInfo p2 ;
+
 
 void mainMenu(){
     int choice;

@@ -1,4 +1,3 @@
-
 void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,History U[totalmoves+1],time_t t1){
     time_t t = time(0);
     char *ti = ctime(&t);
@@ -19,6 +18,12 @@ void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,Histo
             printf("\x1b[31;5m" " \n\n\n\n\t\t\t\t\t\t  Player Two's Turn\n"ANSI_COLOR_RESET);
         }
         printf(ANSI_COLOR_GREEN"\n\t\t\t\t\t\tNumber of remaining lines: %d\n"ANSI_COLOR_RESET,(totalmoves-moves));
+        printf(ANSI_COLOR_BLUE"\t\tplayer one name : %s"ANSI_COLOR_RESET,p1.name);
+        if(playerNumber==2){
+        printf(ANSI_COLOR_RED"\t\t\t\tplayer two name: %s"ANSI_COLOR_RESET,p2.name);
+        }else{
+        printf(ANSI_COLOR_RED"\t\t\t\tplayer two name: Computer"ANSI_COLOR_RESET);
+        }
         printf(ANSI_COLOR_BLUE"\n\t\tNumber of moves of player one: %d"ANSI_COLOR_RESET,moves1);
         if(playerNumber==2){
             printf(ANSI_COLOR_RED"\t\t\tNumber of moves of player two: %d\n"ANSI_COLOR_RESET,moves2);
