@@ -24,6 +24,7 @@ int main()
         printf("Enter 1 or 2 please : ");
         scanf("%d" , &playerNumber);
     }*/
+    if(l1==0){
     printf("Player one Name: ");
     scanf("%s",p1.name);
     if(playerNumber==2){
@@ -35,12 +36,25 @@ int main()
     printf(ANSI_COLOR_YELLOW"Enter (N) The size of The Grid which is NxN boxes : "ANSI_COLOR_RESET);
     scanf("%d",&x);
     size1= x*2+2 ;
+    }
     int arr1[size1][size1];
+    if(l1==0){
     grid(size1,arr1);
     totalmoves= 2*x*(x+1);
     system("cls");
+    }
     History U[totalmoves+1];
+    if(l1==1){
+        for(int i=0 ; i<size1 ;i++){
+            for(int j=0; j<size1 ; j++){
+                arr1[i][j]=arr2[i][j];
+            }
+        }
+    }
     t1=time(0);
+    if(v!=1){
+        goto there2 ;
+    }
     there :
     while(moves<totalmoves){
         v=1 ;
