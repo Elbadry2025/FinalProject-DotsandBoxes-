@@ -20,10 +20,10 @@ int main()
     system(" ");
     int x;
     system("cls");
-    while(playerNumber != 1 && playerNumber != 2){
+    /*while(playerNumber != 1 && playerNumber != 2){
         printf("Enter 1 or 2 please : ");
         scanf("%d" , &playerNumber);
-    }
+    }*/
     printf("Player one Name: ");
     scanf("%s",p1.name);
     if(playerNumber==2){

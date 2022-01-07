@@ -51,6 +51,10 @@ void mainMenu(){
             system("cls");
             printf(ANSI_COLOR_YELLOW "For 1 player mode enter (1)\n\nFor 2 player mode enter (2)\n"ANSI_COLOR_RESET );
             scanf("%d",&playerNumber);
+            while(playerNumber != 1 && playerNumber != 2){
+                printf("Enter 1 or 2 please : ");
+                scanf("%d" , &playerNumber);
+            }
             break;
         case 2:
             jump5:
