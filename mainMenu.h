@@ -8,7 +8,7 @@
 #define ANSI_COLOR_RESET   "\x1b[0m"
 #define MAXSIZE 22
 int v =1;           // represent which player is playing
-int index ;
+int index;
 int size1=0 ;
 int moves=0;
 int moves1 =0;

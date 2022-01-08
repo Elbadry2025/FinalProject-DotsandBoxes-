@@ -138,21 +138,52 @@ int main()
     if(playerNumber == 2){
         p2.score = score2;
     }
+
+    FILE *rank ;
+    rank= fopen("Rank.bin","rb");
+    for(int i=0 ; i< index; i++){
+        fscanf(rank,"%d\n",&top10[i].score);
+        fscanf(rank,"%s\n",top10[i].name);
+    }
+    fclose(rank);
+    //////////
     FILE *topten;
     topten =fopen("ArrayIndex.bin","rb");
-
-    if(score1 > score2){
+    fscanf(topten,"%d",&index);
+    if(p1.score > score2){
         strcpy(top10[index].name,p1.name);
-        top10[index].score = p1.score;
+        top10[index].score = score1;
+        index++;
     }else if(p2.score > score1){
         strcpy(top10[index].name,p2.name);
         top10[index].score = p2.score;
-    }else{
+        index++;
+    }else if(p1.score == p2.score){
         strcpy(top10[index].name,p1.name);
-        top10[index].score = p1.score;
+        top10[index].score = score1;
+        index++;
         strcpy(top10[index].name,p2.name);
         top10[index].score = p2.score;
+        index++;
     }
+    topten =fopen("ArrayIndex.bin","wb");
+    fprintf(topten,"%d",index);
     fclose(topten);
+    for(int i=0 ; i<index ;i++){                      //sorting the players using bubble sort
+        for(int j=0 ; j<index-1;j++){
+            if(top10[j].score > top10[j+1].score ){
+                playerInfo temp = top10[j];
+                top10[j]=top10[j+1];
+                top10[j+1]=temp ;
+            }
+        }
+    }
+    FILE *rank1 ;
+    rank1= fopen("Rank.bin","wb");
+    for(int i=0 ; i< index; i++){
+        fprintf(rank1,"%d\n",top10[i].score);
+        fprintf(rank1,"%s\n",top10[i].name);
+    }
+    fclose(rank1);
     return 0;
 }
