@@ -26,9 +26,9 @@ void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,Histo
         }
         printf(ANSI_COLOR_BLUE"\n\t\tNumber of moves of player one: %d"ANSI_COLOR_RESET,moves1);
         if(playerNumber==2){
-            printf(ANSI_COLOR_RED"\t\t\tNumber of moves of player two: %d\n"ANSI_COLOR_RESET,moves2);
+            printf(ANSI_COLOR_RED"\t\t\tNumber of moves of player two: %d"ANSI_COLOR_RESET,moves2);
         }else{
-            printf(ANSI_COLOR_RED"\t\t\tNumber of moves of the computer: %d\n"ANSI_COLOR_RESET,moves2);
+            printf(ANSI_COLOR_RED"\t\t\tNumber of moves of the computer: %d"ANSI_COLOR_RESET,moves2);
         }
         printf(ANSI_COLOR_BLUE"\n\t\tCurrent Score of Player one : %d "ANSI_COLOR_RESET,score1);
         if(playerNumber ==2){
@@ -36,7 +36,7 @@ void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,Histo
         }else{
             printf(ANSI_COLOR_RED" \t\t\tCurrent Score of Computer : %d\n\n"ANSI_COLOR_RESET,score2);
         }
-            printf(ANSI_COLOR_YELLOW"**Enter 0,0 for UNDO and 1,1 for REDO** \n\n"ANSI_COLOR_RESET);
+            printf(ANSI_COLOR_YELLOW"**Enter 0,0 for UNDO and 1,1 for REDO and 2,2 for SAVE** \n\n"ANSI_COLOR_RESET);
         if(v==0){
             goto there5;
         }
@@ -46,7 +46,17 @@ void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,Histo
         scanf("%d",&z);
         t2 = time(0) ;
         if(y==2 && z==2){
+            j1:
+            system("cls");
+            printf("Choose which file to save your game in (1 , 2 , 3): ");
+            scanf("%d",&ChooseSave);
+            if(ChooseSave!=1 && ChooseSave!=2 && ChooseSave!=3 ){
+                goto j1;
+            }
             SaveFun(arr1);
+            system("cls");
+            printf("File Saved Successfully\n");
+            goto there3;
         }
         if(y==0 && z==0 && moves != 0 && MovesAfterLoad!=0){          // For Undo
             counter++ ;

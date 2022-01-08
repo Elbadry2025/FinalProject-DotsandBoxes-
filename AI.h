@@ -1,6 +1,6 @@
 void AI (int size1 , int arr1[][size1],int flag){
     for(int i = 1; i<size1-2; i+=2){
-        for(int j =2 ; j<size1-2 ; j+=2){
+        for(int j =2 ; j<size1 ; j+=2){
             if(arr1[i][j]!= ' ' &&arr1[i+2][j]!= ' '){
                 if(arr1[i+1][j-1]!= ' ' && arr1[i+1][j+1]== ' '){
                     arr1[i+1][j+1]= 186 ;

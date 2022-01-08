@@ -18,6 +18,7 @@ int counter=0;
 int counter1=0;
 int l1=0 ;
 int x;
+int ChooseSave;
 int playerNumber ;
 int totalmoves ;
 int arr2[MAXSIZE][MAXSIZE];
@@ -45,7 +46,6 @@ playerInfo p2 ;
 
 void mainMenu(){
     int choice;
-    int chooseFile;
     printf("\t\t\t\t\t  **Welcome to Dots and Boxes**\n\t\t\t\t\t\tproject made by\n\t\t\t\t\tELbadry Mohamed & Mohamed Hassan");
     printf("\n\n%cNew game(enter 1)\n\n%cLoad game(enter 2)\n\n%cTop 10 players(enter 3)\n\n%cExit(enter 4)\n\n%cEnter your choice: ",16,16,16,16,16);
     scanf("%d" ,&choice);
@@ -63,13 +63,15 @@ void mainMenu(){
             jump5:
             system("cls");
             printf("Enter the saved file number 1 or 2 or 3: ");
-            scanf("%d" ,&chooseFile);
-            LoadFun();
-            l1=1 ;
-            if(chooseFile != 1 && chooseFile != 2 && chooseFile != 3){
+            scanf("%d" ,&ChooseSave);
+            /*LoadFun();
+            l1=1 ;*/
+            if(ChooseSave != 1 && ChooseSave != 2 && ChooseSave != 3){
                 system("cls");
                 goto jump5;
             }
+            LoadFun();
+            l1=1;
             break;
         case 4:
             exit(0);
