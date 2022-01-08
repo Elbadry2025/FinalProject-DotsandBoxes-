@@ -43,7 +43,7 @@ int main()
     totalmoves= 2*x*(x+1);
     system("cls");
     }
-    History U[totalmoves+1];
+   // History U[totalmoves+1];
     if(l1==1){
         for(int i=0 ; i<size1 ;i++){
             for(int j=0; j<size1 ; j++){

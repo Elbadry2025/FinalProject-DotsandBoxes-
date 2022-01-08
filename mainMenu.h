@@ -20,7 +20,7 @@ int l1=0 ;
 int x;
 int playerNumber ;
 int totalmoves ;
-int arr2[22][22];
+int arr2[MAXSIZE][MAXSIZE];
 time_t t2;
 typedef struct{
     int WhichPlayer ;
@@ -32,6 +32,7 @@ typedef struct{
     int scoreplayer2;
     }History;
 History playes ;
+History U[221];
 
 typedef struct {
 int score;
