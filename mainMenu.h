@@ -21,6 +21,7 @@ int x;
 int playerNumber ;
 int totalmoves ;
 int arr2[MAXSIZE][MAXSIZE];
+int MovesAfterLoad =0 ;
 time_t t2;
 typedef struct{
     int WhichPlayer ;

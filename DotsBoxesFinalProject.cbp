@@ -31,10 +31,19 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="AI.h" />
+		<Unit filename="GamePlay.h" />
+		<Unit filename="Redo.h" />
+		<Unit filename="SaveFun.h" />
+		<Unit filename="Scorefun.h" />
+		<Unit filename="Undo.h" />
 		<Unit filename="grid.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="mainMenu.h" />
+		<Unit filename="moveshist.h" />
+		<Unit filename="print.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

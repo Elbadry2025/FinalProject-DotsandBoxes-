@@ -13,4 +13,5 @@ void Undo(int size1,int arr1[][size1],int totalmoves,History U[totalmoves+1]){
         moves2--;
     }
     moves-- ;
+    MovesAfterLoad--;
 }

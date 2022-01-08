@@ -18,12 +18,7 @@ int main()
     mainMenu();
     time_t t1;
     system(" ");
-    int x;
     system("cls");
-    /*while(playerNumber != 1 && playerNumber != 2){
-        printf("Enter 1 or 2 please : ");
-        scanf("%d" , &playerNumber);
-    }*/
     if(l1==0){
     printf("Player one Name: ");
     scanf("%s",p1.name);
@@ -55,6 +50,7 @@ int main()
     if(v!=1){
         goto there2 ;
     }
+    moveshist(moves1 ,moves2 ,totalmoves ,size1 ,arr1, U ); ////////////////////////////////
     there :
     while(moves<totalmoves){
         v=1 ;
@@ -63,6 +59,7 @@ int main()
         if(v !=1){
             moves++ ;
             moves2++;
+            MovesAfterLoad++;  //////////////
             moveshist(moves1,moves2,totalmoves ,size1 ,arr1, U );
             system("cls");
             goto jump3;
@@ -70,6 +67,7 @@ int main()
         system("cls");
         moves++;
         moves1++;
+        MovesAfterLoad++;
         jump4:
         playes.move = moves ;
         playes.move1 = moves1 ;
@@ -88,18 +86,21 @@ int main()
         }
         // Player Two
         there2 :
+       //////// moveshist(moves1 ,moves2 ,totalmoves ,size1 ,arr1, U ); ////////////////////
         if(playerNumber==2){
             v=2 ;
         }else{
             v=0 ;
         }
         if(moves<totalmoves){
-            playes.WhichPlayer = v ;
-            U[moves]= playes ;
+           /* playes.WhichPlayer = v ;
+            U[moves]= playes ;*/
+            moveshist(moves1 ,moves2 ,totalmoves ,size1 ,arr1, U );//////////////////// extra
             GamePlay(playerNumber,size1,arr1,totalmoves,U ,t1);
             if(v !=2 && v!=0){
                 moves++ ;
                 moves1++;
+                MovesAfterLoad++;
                 moveshist(moves1,moves2,totalmoves ,size1 ,arr1,  U);
                 system("cls");
                 goto jump4;
@@ -108,6 +109,7 @@ int main()
         system("cls");
         moves++;
         moves2++;
+        MovesAfterLoad++;
         jump3:
         playes.move = moves ;
         playes.move2 = moves2 ;

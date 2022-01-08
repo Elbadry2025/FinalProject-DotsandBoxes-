@@ -48,7 +48,7 @@ void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,Histo
         if(y==2 && z==2){
             SaveFun(arr1);
         }
-        if(y==0 && z==0 && moves != 0){          // For Undo
+        if(y==0 && z==0 && moves != 0 && MovesAfterLoad!=0){          // For Undo
             counter++ ;
             Undo(size1,arr1,totalmoves,U);
             if(playerNumber==1){
