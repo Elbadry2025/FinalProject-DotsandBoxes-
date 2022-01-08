@@ -7,7 +7,8 @@
 #define ANSI_COLOR_WHITE   "\x1b[97m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 #define MAXSIZE 22
-int v =1; // represent which player is playing
+int v =1;           // represent which player is playing
+int index ;
 int size1=0 ;
 int moves=0;
 int moves1 =0;
@@ -42,20 +43,29 @@ char name[30];
 }playerInfo;
 playerInfo p1 ;
 playerInfo p2 ;
+playerInfo top10[25] ;
 
 
 void mainMenu(){
     int choice;
+    start:
     printf("\t\t\t\t\t  **Welcome to Dots and Boxes**\n\t\t\t\t\t\tproject made by\n\t\t\t\t\tELbadry Mohamed & Mohamed Hassan");
     printf("\n\n%cNew game(enter 1)\n\n%cLoad game(enter 2)\n\n%cTop 10 players(enter 3)\n\n%cExit(enter 4)\n\n%cEnter your choice: ",16,16,16,16,16);
     scanf("%d" ,&choice);
+    if(choice != 1 && choice != 2 && choice != 3 && choice != 4){
+        scanf("%*[^\n]");
+        system("cls");      //pervents the user from entering charachters.
+        goto start;
+    }
     switch(choice){
         case 1:
             system("cls");
             printf(ANSI_COLOR_YELLOW "For 1 player mode enter (1)\n\nFor 2 player mode enter (2)\n"ANSI_COLOR_RESET );
             scanf("%d",&playerNumber);
             while(playerNumber != 1 && playerNumber != 2){
-                printf("Enter 1 or 2 please : ");
+                scanf("%*[^\n]");
+                system("cls");
+                printf(ANSI_COLOR_YELLOW "For 1 player mode enter (1)\n\nFor 2 player mode enter (2)\n"ANSI_COLOR_RESET );
                 scanf("%d" , &playerNumber);
             }
             break;
@@ -64,10 +74,9 @@ void mainMenu(){
             system("cls");
             printf("Enter the saved file number 1 or 2 or 3: ");
             scanf("%d" ,&ChooseSave);
-            /*LoadFun();
-            l1=1 ;*/
             if(ChooseSave != 1 && ChooseSave != 2 && ChooseSave != 3){
                 system("cls");
+                scanf("%*[^\n]");
                 goto jump5;
             }
             LoadFun();
@@ -75,8 +84,5 @@ void mainMenu(){
             break;
         case 4:
             exit(0);
-        default:
-            system("cls");
-            mainMenu();
     }
 }

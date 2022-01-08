@@ -134,5 +134,25 @@ int main()
     print(size1,arr1);
     printf(ANSI_COLOR_BLUE "  Player ONE Score : %d "ANSI_COLOR_RESET ,score1) ;
     printf(ANSI_COLOR_RED "      \t\t\t\t\t\t Player TWO Score : %d\n"ANSI_COLOR_RESET ,score2) ;
+    p1.score = score1;
+    if(playerNumber == 2){
+        p2.score = score2;
+    }
+    FILE *topten;
+    topten =fopen("ArrayIndex.bin","rb");
+
+    if(score1 > score2){
+        strcpy(top10[index].name,p1.name);
+        top10[index].score = p1.score;
+    }else if(p2.score > score1){
+        strcpy(top10[index].name,p2.name);
+        top10[index].score = p2.score;
+    }else{
+        strcpy(top10[index].name,p1.name);
+        top10[index].score = p1.score;
+        strcpy(top10[index].name,p2.name);
+        top10[index].score = p2.score;
+    }
+    fclose(topten);
     return 0;
 }
