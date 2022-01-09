@@ -135,12 +135,12 @@ int main()
         printf(ANSI_COLOR_RED"\n      \t\t\t\t\t\tGAME OVER !!"ANSI_COLOR_RESET);
     }
     topPlayers();
-    ////
+
     printf("\n\t\t\t\t\t\t ***Top Ten Players***\n\n");
     for(int i=0 ; i<10 ; i++){
         printf("\t\t\t\t\t\t      %d- %s: %d\n",i+1,top10[i].name,top10[i].score);
     }
-    ////
+
 
     printf("\nEnter 1 to return to main menu or press any key to Exit: ");
     scanf("%d",&ReturnMainMenu);
