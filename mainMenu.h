@@ -7,18 +7,18 @@
 #define ANSI_COLOR_WHITE   "\x1b[97m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 #define MAXSIZE 22
-int v =1;           // represent which player is playing
-int index;
-int size1=0 ;
-int moves=0;
-int moves1 =0;
-int moves2 =0;
-int score1=0;
-int score2=0;
+int v =1;           // represent which player is playing.
+int index;          // represent the number of saved files in top 10.
+int size1=0 ;       // represent the size of the grid.
+int moves=0;        // represent the total number of moves played.
+int moves1 =0;      // represent the number of moves played by player 1.
+int moves2 =0;      // represent the number of moves played by player 2.
+int score1=0;       // represent the current score of player 1.
+int score2=0;       // represent the current score of player 2.
 int counter=0;
 int counter1=0;
-int l1=0 ;
-int x;
+int l1=0 ;          // A variable that helps in loading a previous game.
+int x;              // A variable that determines the size of the grid.
 int ChooseSave;
 int ReturnMainMenu;
 int playerNumber ;
@@ -35,7 +35,7 @@ typedef struct{
     int move2;
     int scoreplayer1;
     int scoreplayer2;
-    }History;
+}History;
 History playes ;
 History U[221];
 
@@ -57,19 +57,26 @@ void mainMenu(){
     scanf("%d" ,&choice);
     if(choice != 1 && choice != 2 && choice != 3 && choice != 4){
         scanf("%*[^\n]");
-        system("cls");      //pervents the user from entering charachters.
+        system("cls");      //pervents the user from entering characters.
         goto start;
     }
     switch(choice){
         case 1:
             system("cls");
-            printf("For 1 player mode enter (1)\n\nFor 2 player mode enter (2)\n");
+            printf("For 1 player mode enter (1)\n\nFor 2 player mode enter (2)\n\n");
             scanf("%d",&playerNumber);
             while(playerNumber != 1 && playerNumber != 2){
                 scanf("%*[^\n]");
                 system("cls");
                 printf("For 1 player mode enter (1)\n\nFor 2 player mode enter (2)\n");
                 scanf("%d" , &playerNumber);
+            }
+                printf("Player one Name: ");
+                scanf("%s",p1.name);
+            if(playerNumber==2){
+                printf("Player two Name: ");
+                scanf("%s",p2.name);
+                system("cls");
             }
             break;
         case 2:
@@ -97,7 +104,6 @@ void mainMenu(){
             for(int i=0 ; i<10 ; i++){
                 printf("\t\t\t\t\t\t      %d- %s: %d\n\n",i+1,top10[i].name,top10[i].score);
             }
-
         case 4:
             exit(0);
     }

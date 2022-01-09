@@ -3,7 +3,8 @@
 #include <time.h>
 #include <math.h>
 #include <conio.h>
-#include "grid.h" //Calling all functions
+//Calling all functions
+#include "grid.h"
 #include "mainMenu.h"
 #include "print.h"
 #include "Scorefun.h"
@@ -14,6 +15,7 @@
 #include "moveshist.h"
 #include "AI.h"
 #include "topPlayers.h"
+#include "ResetVariables.h"
 int main()
 {
     start:
@@ -21,14 +23,14 @@ int main()
     time_t t1;
     system(" ");
     system("cls");
-    if(l1==0){
-    printf("Player one Name: ");
+    if(l1 == 0){
+    /*printf("Player one Name: ");
     scanf("%s",p1.name);
     if(playerNumber==2){
         printf("Player two Name: ");
        scanf("%s",p2.name);
         system("cls");
-    }
+    }*/
 
     printf(ANSI_COLOR_YELLOW"Enter (N) The size of The Grid which is NxN boxes : "ANSI_COLOR_RESET);
     scanf("%d",&x);
@@ -128,9 +130,8 @@ int main()
             break ;
         }
     }
-
     print(size1,arr1);
-    printf(ANSI_COLOR_BLUE "  Player ONE Score : %d "ANSI_COLOR_RESET ,score1) ;
+    printf(ANSI_COLOR_BLUE "\n\n       Player ONE Score : %d "ANSI_COLOR_RESET ,score1) ;
     printf(ANSI_COLOR_RED "      \t\t\t\t\t\t Player TWO Score : %d\n"ANSI_COLOR_RESET ,score2) ;
     p1.score = score1;
     if(playerNumber == 2){
@@ -150,6 +151,7 @@ int main()
     scanf("%d",&ReturnMainMenu);
     if(ReturnMainMenu==1){
         system("cls");
+        ResetVariables();
         goto start ;
     }
     return 0;

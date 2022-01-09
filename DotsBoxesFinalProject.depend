@@ -33,7 +33,7 @@
 
 1640204316 c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\grid.h
 
-1641673864 source:c:\users\admin\desktop\final project\finalproject-dotsandboxes-\main.c
+1641730840 source:c:\users\admin\desktop\final project\finalproject-dotsandboxes-\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -49,6 +49,8 @@
 	"Redo.h"
 	"moveshist.h"
 	"AI.h"
+	"topPlayers.h"
+	"ResetVariables.h"
 
 1640461400 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\grid.h
 
@@ -70,7 +72,7 @@
 
 1641671099 c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\savefun.h
 
-1641675987 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\mainmenu.h
+1641732111 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\mainmenu.h
 
 1641582935 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\print.h
 
@@ -78,7 +80,7 @@
 
 1641671629 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\savefun.h
 
-1641673864 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\gameplay.h
+1641731368 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\gameplay.h
 
 1641667064 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\undo.h
 
@@ -89,4 +91,8 @@
 1641671629 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\ai.h
 
 1641690535 c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\topplayers.h
+
+1641693125 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\topplayers.h
+
+1641731108 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\resetvariables.h
 
