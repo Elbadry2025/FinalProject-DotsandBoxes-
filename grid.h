@@ -1,4 +1,4 @@
-void grid (int size1,int arr1[][size1] ){
+void grid (int size1,int arr1[][size1] ){     // This function is used to initialize an empty grid containing dots and spaces.
     for(int j=0; j < size1; j++){
             arr1[0][j] = j;
             arr1[j][0] = j;

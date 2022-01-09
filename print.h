@@ -1,5 +1,5 @@
-void print(int size1,int arr1[][size1]){
-    printf("\n\t\t\t\t\t\t    "); //
+void print(int size1,int arr1[][size1]){    // this function is used to print the
+    printf("\n\t\t\t\t\t\t    ");
     for(int j=1 ;j<size1 ;j++){
         printf(" %d",arr1[0][j]);
     }
