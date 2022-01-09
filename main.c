@@ -132,7 +132,7 @@ int main()
     }else if(score2>p1.score && playerNumber==2){
         printf(ANSI_COLOR_RED"\t\t\t\t\t\t%s is the WINNER!!"ANSI_COLOR_RESET,p2.name);
     }else if(score2>p1.score && playerNumber==1){
-        printf(ANSI_COLOR_RED"\n      \t\t\t\t\t\tGAME OVER !!"ANSI_COLOR_RESET);
+        printf(ANSI_COLOR_RED"\n        \t\t\t\t\t\tGAME OVER !!"ANSI_COLOR_RESET);
     }
     topPlayers();
     printf("\n\t\t\t\t\t\t ***Top Ten Players***\n\n");
