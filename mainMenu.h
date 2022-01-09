@@ -7,18 +7,19 @@
 #define ANSI_COLOR_WHITE   "\x1b[97m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 #define MAXSIZE 22
-int v =1;           // represent which player is playing.
-int index;          // represent the number of saved files in top 10.
-int size1=0 ;       // represent the size of the grid.
-int moves=0;        // represent the total number of moves played.
-int moves1 =0;      // represent the number of moves played by player 1.
-int moves2 =0;      // represent the number of moves played by player 2.
-int score1=0;       // represent the current score of player 1.
-int score2=0;       // represent the current score of player 2.
+int v =1;           // Represent which player is playing.
+int index;          // Represent the number of saved files in top 10.
+int size1=0 ;       // Represent the size of the grid.
+int moves=0;        // Represent the total number of moves played.
+int moves1 =0;      // Represent the number of moves played by player 1.
+int moves2 =0;      // Represent the number of moves played by player 2.
+int score1=0;       // Represent the current score of player 1.
+int score2=0;       // Represent the current score of player 2.
 int counter=0;
 int counter1=0;
-int l1=0 ;          // A variable that helps in loading a previous game.
+int l1=0 ;          // A variable that checks if a game is loaded
 int x;              // A variable that determines the size of the grid.
+int level;
 int ChooseSave;
 int ReturnMainMenu;
 int playerNumber ;
@@ -71,13 +72,29 @@ void mainMenu(){
                 printf("For 1 player mode enter (1)\n\nFor 2 player mode enter (2)\n");
                 scanf("%d" , &playerNumber);
             }
-                printf("Player one Name: ");
-                scanf("%s",p1.name);
+            system("cls");
+            printf("Player one Name: ");
+            scanf("%s",p1.name);
             if(playerNumber==2){
                 printf("Player two Name: ");
                 scanf("%s",p2.name);
                 system("cls");
             }
+            jok :
+            printf("Choose the difficulty level:\n\n%cEasy(enter 1)\n\n%cBeginner(enter 2)\n\n%cHard(enter 3)\n\n%cExpert(enter 4)\n\n%cYour choice: ",16,16,16,16,16);
+            scanf("%d" ,&level);
+            switch(level){
+                case 1: x = 2; break;
+                case 2: x = 3; break;
+                case 3: x = 4; break;
+                case 4: x = 5; break;
+                default:
+                    scanf("%*[^\n]");
+                    system("cls");
+                    goto jok;
+
+            }
+            size1= x*2+2 ;
             break;
         case 2:
             jump5:

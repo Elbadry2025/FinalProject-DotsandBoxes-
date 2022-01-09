@@ -23,21 +23,9 @@ int main()
     time_t t1;
     system(" ");
     system("cls");
-    if(l1 == 0){
-    /*printf("Player one Name: ");
-    scanf("%s",p1.name);
-    if(playerNumber==2){
-        printf("Player two Name: ");
-       scanf("%s",p2.name);
-        system("cls");
-    }*/
-
-    printf(ANSI_COLOR_YELLOW"Enter (N) The size of The Grid which is NxN boxes : "ANSI_COLOR_RESET);
-    scanf("%d",&x);
-    size1= x*2+2 ;
-    }
+    // we get size1 from main menu by using x.
     int arr1[size1][size1];
-    if(l1==0){
+    if(l1==0){     // A variable that checks if a game is loaded.
     grid(size1,arr1);
     totalmoves= 2*x*(x+1);
     system("cls");
