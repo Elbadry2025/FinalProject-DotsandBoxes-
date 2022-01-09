@@ -1,4 +1,6 @@
 void moveshist(int moves1 ,int moves2 ,int totalmoves ,int size1 , int arr1[][size1] ,History U[totalmoves+1]){
+    // This function is used to save the grid and moves of each player and their scores
+    // the turn of the next player in U structure.
     for(int i=0 ;i<size1; i++){
         for(int j=0 ; j<size1 ; j++){
             playes.arr[i][j] = arr1[i][j] ;

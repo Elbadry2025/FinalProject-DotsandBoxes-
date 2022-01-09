@@ -1,6 +1,7 @@
 void Redo(int size1,int arr1[][size1],int totalmoves,History U[totalmoves+1]){
-    if(v !=1){
-        moves2++;
+    // this function is used to redo the next move.
+    if(v !=1){                  // this if statement checks which player made the next move
+        moves2++;               // and increases his number of moves.
     }else{
         moves1++;
     }

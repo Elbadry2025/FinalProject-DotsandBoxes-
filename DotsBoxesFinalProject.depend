@@ -35,7 +35,7 @@
 
 1640204316 c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\grid.h
 
-1641734439 source:c:\users\admin\desktop\final project\finalproject-dotsandboxes-\main.c
+1641738657 source:c:\users\admin\desktop\final project\finalproject-dotsandboxes-\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -53,6 +53,7 @@
 	"AI.h"
 	"topPlayers.h"
 	"ResetVariables.h"
+	"DebugGrid.h"
 
 1640461400 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\grid.h
 
@@ -74,23 +75,23 @@
 
 1641671099 c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\savefun.h
 
-1641734439 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\mainmenu.h
+1641743898 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\mainmenu.h
 
-1641582935 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\print.h
+1641738192 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\print.h
 
-1641671629 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\scorefun.h
+1641746007 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\scorefun.h
 
 1641671629 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\savefun.h
 
-1641731368 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\gameplay.h
+1641746007 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\gameplay.h
 
-1641667064 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\undo.h
+1641746007 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\undo.h
 
-1641667064 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\redo.h
+1641746007 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\redo.h
 
-1641595462 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\moveshist.h
+1641743898 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\moveshist.h
 
-1641671629 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\ai.h
+1641746007 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\ai.h
 
 1641690535 c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\topplayers.h
 
@@ -101,4 +102,6 @@
 1641732958 c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\resetvariables.h
 
 1641736880 c:\users\dell\desktop\dotsboxesfinalproject\finalproject-dotsandboxes-\debuggrid.h
+
+1641738192 c:\users\admin\desktop\final project\finalproject-dotsandboxes-\debuggrid.h
 
