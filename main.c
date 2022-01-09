@@ -13,8 +13,10 @@
 #include "Redo.h"
 #include "moveshist.h"
 #include "AI.h"
+#include "topPlayers.h"
 int main()
 {
+    start:
     mainMenu();
     time_t t1;
     system(" ");
@@ -38,7 +40,6 @@ int main()
     totalmoves= 2*x*(x+1);
     system("cls");
     }
-   // History U[totalmoves+1];
     if(l1==1){
         for(int i=0 ; i<size1 ;i++){
             for(int j=0; j<size1 ; j++){
@@ -50,7 +51,7 @@ int main()
     if(v!=1){
         goto there2 ;
     }
-    moveshist(moves1 ,moves2 ,totalmoves ,size1 ,arr1, U ); ////////////////////////////////
+    moveshist(moves1 ,moves2 ,totalmoves ,size1 ,arr1, U );
     there :
     while(moves<totalmoves){
         v=1 ;
@@ -59,7 +60,7 @@ int main()
         if(v !=1){
             moves++ ;
             moves2++;
-            MovesAfterLoad++;  //////////////
+            MovesAfterLoad++;
             moveshist(moves1,moves2,totalmoves ,size1 ,arr1, U );
             system("cls");
             goto jump3;
@@ -86,16 +87,13 @@ int main()
         }
         // Player Two
         there2 :
-       //////// moveshist(moves1 ,moves2 ,totalmoves ,size1 ,arr1, U ); ////////////////////
         if(playerNumber==2){
             v=2 ;
         }else{
             v=0 ;
         }
         if(moves<totalmoves){
-           /* playes.WhichPlayer = v ;
-            U[moves]= playes ;*/
-            moveshist(moves1 ,moves2 ,totalmoves ,size1 ,arr1, U );//////////////////// extra
+            moveshist(moves1 ,moves2 ,totalmoves ,size1 ,arr1, U );
             GamePlay(playerNumber,size1,arr1,totalmoves,U ,t1);
             if(v !=2 && v!=0){
                 moves++ ;
@@ -138,52 +136,21 @@ int main()
     if(playerNumber == 2){
         p2.score = score2;
     }
-
-    FILE *rank ;
-    rank= fopen("Rank.bin","rb");
-    for(int i=0 ; i< index; i++){
-        fscanf(rank,"%d\n",&top10[i].score);
-        fscanf(rank,"%s\n",top10[i].name);
+    if(p1.score>score2){
+        printf(ANSI_COLOR_BLUE"%\t\t\t\t\t\t%s is the WINNER!!"ANSI_COLOR_RESET,p1.name);
+    }else if(p1.score == score2){
+        printf(ANSI_COLOR_GREEN"\n      \t\t\t\t\t\t    DRAW"ANSI_COLOR_RESET);
+    }else if(score2>p1.score && playerNumber==2){
+        printf(ANSI_COLOR_RED"\t\t\t\t\t\t%s is the WINNER!!"ANSI_COLOR_RESET,p2.name);
+    }else if(score2>p1.score && playerNumber==1){
+        printf(ANSI_COLOR_RED"\n      \t\t\t\t\t\tGAME OVER !!"ANSI_COLOR_RESET);
     }
-    fclose(rank);
-    //////////
-    FILE *topten;
-    topten =fopen("ArrayIndex.bin","rb");
-    fscanf(topten,"%d",&index);
-    if(p1.score > score2){
-        strcpy(top10[index].name,p1.name);
-        top10[index].score = score1;
-        index++;
-    }else if(p2.score > score1){
-        strcpy(top10[index].name,p2.name);
-        top10[index].score = p2.score;
-        index++;
-    }else if(p1.score == p2.score){
-        strcpy(top10[index].name,p1.name);
-        top10[index].score = score1;
-        index++;
-        strcpy(top10[index].name,p2.name);
-        top10[index].score = p2.score;
-        index++;
+    topPlayers();
+    printf("\nEnter 1 to return to main menu or press any key to Exit: ");
+    scanf("%d",&ReturnMainMenu);
+    if(ReturnMainMenu==1){
+        system("cls");
+        goto start ;
     }
-    topten =fopen("ArrayIndex.bin","wb");
-    fprintf(topten,"%d",index);
-    fclose(topten);
-    for(int i=0 ; i<index ;i++){                      //sorting the players using bubble sort
-        for(int j=0 ; j<index-1;j++){
-            if(top10[j].score > top10[j+1].score ){
-                playerInfo temp = top10[j];
-                top10[j]=top10[j+1];
-                top10[j+1]=temp ;
-            }
-        }
-    }
-    FILE *rank1 ;
-    rank1= fopen("Rank.bin","wb");
-    for(int i=0 ; i< index; i++){
-        fprintf(rank1,"%d\n",top10[i].score);
-        fprintf(rank1,"%s\n",top10[i].name);
-    }
-    fclose(rank1);
     return 0;
 }

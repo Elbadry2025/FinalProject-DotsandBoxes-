@@ -20,10 +20,12 @@ int counter1=0;
 int l1=0 ;
 int x;
 int ChooseSave;
+int ReturnMainMenu;
 int playerNumber ;
 int totalmoves ;
 int arr2[MAXSIZE][MAXSIZE];
 int MovesAfterLoad =0 ;
+FILE *R ;
 time_t t2;
 typedef struct{
     int WhichPlayer ;
@@ -43,13 +45,14 @@ char name[30];
 }playerInfo;
 playerInfo p1 ;
 playerInfo p2 ;
-playerInfo top10[25] ;
+playerInfo top10[50] ;
 
 
 void mainMenu(){
+    system(" ");
     int choice;
     start:
-    printf("\t\t\t\t\t  **Welcome to Dots and Boxes**\n\t\t\t\t\t\tproject made by\n\t\t\t\t\tELbadry Mohamed & Mohamed Hassan");
+    printf(ANSI_COLOR_YELLOW"\t\t\t\t\t  **Welcome to Dots and Boxes**\n\t\t\t\t\t\tproject made by\n\t\t\t\t     ELbadry Mohamed & Mohamed Hassan ELtobgy");
     printf("\n\n%cNew game(enter 1)\n\n%cLoad game(enter 2)\n\n%cTop 10 players(enter 3)\n\n%cExit(enter 4)\n\n%cEnter your choice: ",16,16,16,16,16);
     scanf("%d" ,&choice);
     if(choice != 1 && choice != 2 && choice != 3 && choice != 4){
@@ -60,12 +63,12 @@ void mainMenu(){
     switch(choice){
         case 1:
             system("cls");
-            printf(ANSI_COLOR_YELLOW "For 1 player mode enter (1)\n\nFor 2 player mode enter (2)\n"ANSI_COLOR_RESET );
+            printf("For 1 player mode enter (1)\n\nFor 2 player mode enter (2)\n");
             scanf("%d",&playerNumber);
             while(playerNumber != 1 && playerNumber != 2){
                 scanf("%*[^\n]");
                 system("cls");
-                printf(ANSI_COLOR_YELLOW "For 1 player mode enter (1)\n\nFor 2 player mode enter (2)\n"ANSI_COLOR_RESET );
+                printf("For 1 player mode enter (1)\n\nFor 2 player mode enter (2)\n");
                 scanf("%d" , &playerNumber);
             }
             break;
@@ -82,6 +85,19 @@ void mainMenu(){
             LoadFun();
             l1=1;
             break;
+        case 3:
+            R=fopen("Rank.bin","rb");
+            for(int i=0 ; i<10; i++){
+                fscanf(R,"%d\n",&top10[i].score);
+                fscanf(R,"%s\n",top10[i].name);
+            }
+            fclose(R);
+            system("cls");
+            printf("\t\t\t\t\t\t ***Top Ten Players***\n\n");
+            for(int i=0 ; i<10 ; i++){
+                printf("\t\t\t\t\t\t      %d- %s: %d\n\n",i+1,top10[i].name,top10[i].score);
+            }
+
         case 4:
             exit(0);
     }
