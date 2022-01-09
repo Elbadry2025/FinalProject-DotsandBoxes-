@@ -36,7 +36,7 @@ void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,Histo
     }else{
         printf(ANSI_COLOR_RED" \t\t\tCurrent Score of Computer : %d\n\n"ANSI_COLOR_RESET,score2);
     }
-    printf(ANSI_COLOR_YELLOW"**Enter 0,0 for UNDO and 1,1 for REDO and 2,2 for SAVE** \n\n"ANSI_COLOR_RESET);
+    printf(ANSI_COLOR_YELLOW"**Enter 0,0 for UNDO and 1,1 for REDO and 2,2 for SAVE and 3,3 for EXIT** \n\n"ANSI_COLOR_RESET);
     if(v==0){
         goto there5;
     }
@@ -45,6 +45,9 @@ void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,Histo
     printf(ANSI_COLOR_MAGENTA"%c Enter column : "ANSI_COLOR_RESET,16);
     scanf("%d",&z);
     t2 = time(0) ;
+    if(y ==3 && z == 3){
+        exit(0);
+    }
     if(y==2 && z==2){
         j1:
         system("cls");

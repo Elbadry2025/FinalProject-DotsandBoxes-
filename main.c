@@ -3,8 +3,7 @@
 #include <time.h>
 #include <math.h>
 #include <conio.h>
-//Calling all functions
-#include "grid.h"
+#include "grid.h"         //Calling all functions
 #include "mainMenu.h"
 #include "print.h"
 #include "Scorefun.h"
@@ -16,6 +15,7 @@
 #include "AI.h"
 #include "topPlayers.h"
 #include "ResetVariables.h"
+#include "DebugGrid.h"
 int main()
 {
     start:
@@ -128,13 +128,20 @@ int main()
     if(p1.score>score2){
         printf(ANSI_COLOR_BLUE"%\t\t\t\t\t\t%s is the WINNER!!"ANSI_COLOR_RESET,p1.name);
     }else if(p1.score == score2){
-        printf(ANSI_COLOR_GREEN"\n      \t\t\t\t\t\t    DRAW"ANSI_COLOR_RESET);
+        printf(ANSI_COLOR_GREEN"\n      \t\t\t\t\t\t      DRAW"ANSI_COLOR_RESET);
     }else if(score2>p1.score && playerNumber==2){
         printf(ANSI_COLOR_RED"\t\t\t\t\t\t%s is the WINNER!!"ANSI_COLOR_RESET,p2.name);
     }else if(score2>p1.score && playerNumber==1){
         printf(ANSI_COLOR_RED"\n      \t\t\t\t\t\tGAME OVER !!"ANSI_COLOR_RESET);
     }
     topPlayers();
+    ////
+    printf("\n\t\t\t\t\t\t ***Top Ten Players***\n\n");
+    for(int i=0 ; i<10 ; i++){
+        printf("\t\t\t\t\t\t      %d- %s: %d\n",i+1,top10[i].name,top10[i].score);
+    }
+    ////
+
     printf("\nEnter 1 to return to main menu or press any key to Exit: ");
     scanf("%d",&ReturnMainMenu);
     if(ReturnMainMenu==1){

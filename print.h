@@ -24,5 +24,5 @@ void print(int size1,int arr1[][size1]){
         }
         printf("\n");
     }
-
+DebugGrid(size1,arr1);
 }

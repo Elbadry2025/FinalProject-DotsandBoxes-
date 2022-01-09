@@ -32,6 +32,7 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="AI.h" />
+		<Unit filename="DebugGrid.h" />
 		<Unit filename="GamePlay.h" />
 		<Unit filename="Redo.h" />
 		<Unit filename="ResetVariables.h" />
