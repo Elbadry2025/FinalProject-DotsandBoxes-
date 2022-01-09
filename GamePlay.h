@@ -1,9 +1,11 @@
 void GamePlay(int playerNumber,int size1, int arr1[][size1],int totalmoves,History U[totalmoves+1],time_t t1){
+    // it takes the inputs from the user during playing,
+    // modifies the grid and handles any errors related to an invalid input.
     time_t t = time(0);
     char *ti = ctime(&t);
     int y,z ;       // y represents the row number while z represents the column number.
     there3 :
-    if(counter1==0){
+    if(counter1==0){ // checks if it is the first move or not to display the 00:00 time.
         printf(ANSI_COLOR_CYAN"Date: %s"ANSI_COLOR_RESET,ti) ;
         printf(ANSI_COLOR_YELLOW"Time Passed : 00:00"ANSI_COLOR_RESET);
         counter1++ ;

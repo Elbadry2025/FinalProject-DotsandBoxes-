@@ -6,7 +6,7 @@
 #define ANSI_COLOR_CYAN    "\x1b[36m"
 #define ANSI_COLOR_WHITE   "\x1b[97m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
-#define MAXSIZE 22
+#define MAXSIZE 22           // Represent max size of the grid
 int v =1;                    // Represent which player is playing.
 int index;                   // Represent the number of saved files in top 10.
 int size1=0 ;                // Represent the size of the grid.
@@ -16,7 +16,7 @@ int moves2 =0;               // Represent the number of moves played by player 2
 int score1=0;                // Represent the current score of player 1.
 int score2=0;                // Represent the current score of player 2.
 int counter=0;               // Counts the number of times undo was used.
-int counter1=0;              //
+int counter1=0;              // types the time 00:00 at the beginning of the game.
 int l1=0 ;                   // A variable that checks if a game is loaded
 int x;                       // A variable that determines the size of the grid.
 int level;                   // Represents the difficulty selected in the game.
@@ -24,10 +24,10 @@ int ChooseSave;              // Represents the number of the file chosen
 int ReturnMainMenu;          // A variable used at the end of the program to make the user chose to exit or to play again.
 int playerNumber ;           // A variable of value 1 or 2 to determine which will be played whether player vs computer or PVP.
 int totalmoves ;             // Represents the total number of lines calculated with a specific formula.
-int arr2[MAXSIZE][MAXSIZE];  //
+int arr2[MAXSIZE][MAXSIZE];  // takes the shape of the loaded grid.
 int MovesAfterLoad =0 ;      // Represents number of moves played after loading.
 FILE *R ;                    // A file that saves top 10 players.
-time_t t2;                   //
+time_t t2;                   // used to calculate the time after scanning coordinates of the move.
 typedef struct{              // This structure is used to save data while playing to help undo and redo moves.
     int WhichPlayer ;
     int arr[MAXSIZE][MAXSIZE];
