@@ -82,7 +82,7 @@ void mainMenu(){
                 system("cls");
             }
             again :
-            printf("Choose the difficulty level:\n\n%cBeginner(enter 1)\n\n%cEasy(enter 2)\n\n%cHard(enter 3)\n\n%cExpert(enter 4)\n\n%cYour choice: ",16,16,16,16,16);
+            printf("Choose the difficulty level:\n\n%cBeginner(enter 1)\n\n%cModerate(enter 2)\n\n%cHard(enter 3)\n\n%cExpert(enter 4)\n\n%cYour choice: ",16,16,16,16,16);
             scanf("%d" ,&level);
             switch(level){
                 case 1: x = 2; break;

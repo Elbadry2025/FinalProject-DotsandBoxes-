@@ -1,5 +1,7 @@
 void ResetVariables(){
-    v =1;           // represent which player is playing
+    // this function is used to reset global variables back to their initial state
+    // in order to allow the user to play another game if he wants.
+    v =1;
     size1=0 ;
     moves=0;
     moves1 =0;
