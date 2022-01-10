@@ -50,6 +50,7 @@ playerInfo top10[50] ;
 
 
 void mainMenu(){
+    int choice2;
     system(" ");            // used to apply colors to the the text written.
     int choice;
     start:
@@ -109,7 +110,7 @@ void mainMenu(){
             LoadFun();          //Calling the loading function.
             l1=1;
             break;
-        case 3:
+        case 3:                            //top 10
             R=fopen("Rank.bin","rb");
             for(int i=0 ; i<10; i++){
                 fscanf(R,"%d\n",&top10[i].score);
@@ -121,6 +122,15 @@ void mainMenu(){
             for(int i=0 ; i<10 ; i++){
                 printf("\t\t\t\t\t\t      %d- %s: %d\n\n",i+1,top10[i].name,top10[i].score);
             }
+            printf("Enter 1 to return and press any key to exit.\n");
+            scanf("%d",&choice2);
+            if(choice2==1){
+                system("cls");
+                mainMenu();
+            }else{
+                exit(0);
+            }
+            break;
         case 4:
             exit(0);           // Function used to exit from the whole program.
     }
